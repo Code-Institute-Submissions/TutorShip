@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Page Content -->
+<div class="container mt-5">
+    <div class="row pt-5">
+      <div id="sidebar" class="col-lg-3 mt-5 d-none d-md-block">
+        <h2 class="h1 my-4 font-weight-semi">Subjects</h2>
+        <div class="list-group">
+        {% for subject in subjects %}
+            <a href="#" class="h5 list-group-item">{{subject.subject_name}}</a>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% endblock %}
