@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 12</title>
+    <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-12" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#EFEEF3" x="0" y="0" width="38" height="38" rx="5"></rect>
+            <path d="M23.3447,20.5025 L23.8632,17.1235 L20.621,17.1235 L20.621,14.9307 C20.621,14.0063 21.0739,13.1052 22.526,13.1052 L24,13.1052 L24,10.2283 C24,10.2283 22.6624,10 21.3835,10 C18.7134,10 16.9681,11.6184 16.9681,14.5482 L16.9681,17.1235 L14,17.1235 L14,20.5025 L16.9681,20.5025 L16.9681,28.6711 L20.621,28.6711 L20.621,20.5025 L23.3447,20.5025 Z" id="Path" fill="#1C185D"></path>
+        </g>
+    </g>
+</svg>

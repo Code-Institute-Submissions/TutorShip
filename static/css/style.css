@@ -110,6 +110,31 @@ a:hover {
 
 /*--------------------------------------------------------------------- Footer */
 
+.footer {
+    position: absolute;
+    width: 100%;
+    line-height: 35px;
+    background-color: #1C185D;
+    color: white;
+}
+
+.footer p {
+    line-height: 25px;
+}
+
+.footer li a {
+    color: rgba(255, 255, 255, .6);
+    font-weight: 200;
+}
+
+.footer li a:hover {
+    color: white;
+}
+
+.footer h5 {
+    letter-spacing: .2rem;
+}
+
 /*--------------------------------------------------------------------- Forms */
 
 /*--------------------------------------------------------------------- Media Queries */
