@@ -112,9 +112,68 @@ a:hover {
     border-right: 3px solid #FCBC14 ;
 }
 
+.radius {
+    border-radius: 25px;
+}
+
+.radius-top {
+    border-radius: 25px 25px 0px 0;
+}
+
+.translate-y {
+    transition: transform .15s ease-in-out;
+}
+
+.translate-y:hover {
+    transform: translateY(-3px);
+}
+
 /*--------------------------------------------------------------------- Image / Adjustments */
 
 /*--------------------------------------------------------------------- Buttons */
+
+/*--------------------------------------------------------------------- Cards */
+
+.card-color {
+    background-color: #F7FAFD;
+}
+
+.card-color:hover {
+    background-color: #3D1EAE;
+    color: white;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#popular-plan {
+    box-shadow: 0 12px 26px rgb(28, 24, 93, .2);
+    transform: translateY(-15px);
+    border: 3px solid #FCBC14;
+}
+
+.card {
+    background-color: #F7FAFD;
+    border: none;
+}
+
+.card:hover {
+    box-shadow: 0 12px 26px rgb(28, 24, 93, .2);
+}
+
+.card-footer {
+    border-radius: 30px;
+    border: none;
+}
+
+.card-subject h6 {
+    font-size: .8rem;
+    letter-spacing: -.01rem;
+}
+
+.card-footer small {
+    color: #FCBC14;
+}
 
 /*--------------------------------------------------------------------- Footer */
 
@@ -156,6 +215,67 @@ a:hover {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+}
+
+.search-form {
+    position: relative;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%,-100%);
+    transition: all .5s;
+    width: 50px;
+    height: 50px;
+    background: #9ACF61;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid #9ACF61;
+    padding: 5px;
+}
+
+.search-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa-search{
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 0 -1px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: all 1s;
+}
+
+.search-form:hover{
+    width: 250px;
+    cursor: pointer;
+    border: 4px solid #FCBC14;
+}
+
+.search-form:hover input{
+    display: block;
+}
+
+.search-form:hover .fa-search{
+    background: #FCBC14;
+    color: white;
 }
 
 /*--------------------------------------------------------------------- Media Queries */
