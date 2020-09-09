@@ -16,8 +16,8 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/get_subjects')
-def get_tasks():
-    return render_template("tutors.html", subjects=mongo.db.subjects.find())
+def get_subjects():
+    return render_template("tutors.html", subjects_desktop=mongo.db.subjects.find(), subjects_mobile=mongo.db.subjects.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

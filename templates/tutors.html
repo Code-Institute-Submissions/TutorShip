@@ -7,11 +7,22 @@
       <div id="sidebar" class="col-lg-3 mt-5 d-none d-md-block">
         <h2 class="h1 my-4 font-weight-semi">Subjects</h2>
         <div class="list-group">
-        {% for subject in subjects %}
+            <a href="#" class="h5 list-group-item"><i class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors</a>
+        {% for subject in subjects_desktop %}
             <a href="#" class="h5 list-group-item">{{subject.subject_name}}</a>
         {% endfor %}
       </div>
     </div>
+
+    <div class="input-group d-flex col-lg-3 mt-5 d-md-none">
+            <select class="pl-4 custom-select" id="inputGroupSelect01">
+                <option selected disabled>Choose Your Subject</option>
+                {% for subject in subjects_mobile %}
+            <option >{{subject.subject_name}}</option>
+                {% endfor %}
+        </select>
+    </div>
+
 </div>
 
 {% endblock %}

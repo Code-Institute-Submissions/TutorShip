@@ -104,6 +104,14 @@ a:hover {
 
 /*--------------------------------------------------------------------- Special paddings/margins/text */
 
+.font-weight-semi {
+    font-weight: 600;
+}
+
+#sidebar {
+    border-right: 3px solid #FCBC14 ;
+}
+
 /*--------------------------------------------------------------------- Image / Adjustments */
 
 /*--------------------------------------------------------------------- Buttons */
@@ -136,5 +144,18 @@ a:hover {
 }
 
 /*--------------------------------------------------------------------- Forms */
+
+.custom-select  {
+    font-weight: 600;
+    font-size: larger;
+    height: 60px;
+    background-color: #FCBC14;
+    border: 2px solid #FCBC14;
+    border-radius: 50px;
+    color: #3D1EAE;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
 
 /*--------------------------------------------------------------------- Media Queries */
