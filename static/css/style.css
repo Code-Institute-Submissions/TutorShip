@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .03rem;
+    color: #302A43;
+}
+
+a {
+    color: #302A43;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    position: relative;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: #FCBC14;
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+
+/*--------------------------------------------------------------------- Colours */
+
+.bg-purple {
+    background-color: #3D1EAE;
+}
+
+/*--------------------------------------------------------------------- Nav */
+
+.nav-item {
+    font-size: large;
+    font-weight: 600;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.35rem 0rem;
+    border: none;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link, .nav-item {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 4px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #FCBC14;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover:after { 
+    width: 100%; 
+    left: 0; 
+}
+
+.nav-btn {
+    font-weight: 600;
+    height: 40px;
+    background-color: #FCBC14;
+    border: 2px solid #FCBC14;
+    color: #3D1EAE;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #FCBC14;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.nav-btn:active {
+    color: #ffffff;
+}
+
+/*--------------------------------------------------------------------- Special paddings/margins/text */
+
+/*--------------------------------------------------------------------- Image / Adjustments */
+
+/*--------------------------------------------------------------------- Buttons */
+
+/*--------------------------------------------------------------------- Footer */
+
+/*--------------------------------------------------------------------- Forms */
+
+/*--------------------------------------------------------------------- Media Queries */
