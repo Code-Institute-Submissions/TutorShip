@@ -187,6 +187,7 @@ a:hover {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .green-btn:hover {
@@ -210,6 +211,7 @@ a:hover {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .yellow-btn:hover {
