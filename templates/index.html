@@ -11,9 +11,9 @@
             <p class="mb-5 d-none d-sm-flex">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
             <h2 class="font-weight-semi text-yellow my-3">Find a tutor in Dublin:</h2>
             <div class="row">
-              <div class="input-group d-flex col-11 pb-5">
+              <div class="input-group d-flex col-11 mb-4">
                 <select class="pl-4 custom-select" id="inputGroupSelect01">
-                  <option selected>Choose Your Subject</option>
+                  <option selected disabled>Choose Your Subject</option>
                   <option value="1">Accounting</option>
                   <option value="2">Applied Maths</option>
                   <option value="3">Art</option>
@@ -38,6 +38,7 @@
                 </span>
               </div>
             </div>
+            <p class="d-flex text-right text-white">Register as a tutor?<a href="{{url_for('register')}}" class="d-flex pl-2 text-light">Click here</a></p>
           </div>
           <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" class="d-none d-md-flex col-md-6">
             <img src="{{ url_for('static', filename='images/male-cutout.png') }}" class="male-cutout img-responsive">
@@ -57,8 +58,8 @@
               <button class="purple-btn px-4 rounded-pill">Find A Tutor</button>
             </div>
           </div>
-          <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk" data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500" class="d-flex col-md-6 pt-5 border-0 bg-transparent video-btn order-first order-sm-last">
-            <img id="video-image" src="{{ url_for('static', filename='images/video.png') }}">
+          <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk" data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500" class="d-flex col-md-6 pt-5 border-0 bg-transparent video-btn  order-first order-sm-last">
+            <img id="video-image" class="translate-y" src="{{ url_for('static', filename='images/video.png') }}">
           </button>
         </div> 
       </div>
