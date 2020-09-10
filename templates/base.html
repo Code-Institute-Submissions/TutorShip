@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/sandstone/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +31,7 @@
                     </a>
                 </li>
                 <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="{{url_for('pricing')}}">Pricing</a>
                 </li>
                 <li class="nav-item pr-md-3">
                     <a class="nav-link" href="#">About</a>
@@ -99,6 +100,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../static/js/script.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 

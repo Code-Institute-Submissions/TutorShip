@@ -37,6 +37,10 @@ a:hover {
     background-color: #3D1EAE;
 }
 
+.text-purple {
+    color: #3D1EAE;
+}
+
 /*--------------------------------------------------------------------- Nav */
 
 .nav-item {
@@ -168,6 +172,51 @@ a:hover {
     background-color: #92BBFC;
     border: 2px solid #92BBFC;
     color: #F7FAFD;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.green-btn {
+    font-weight: 600;
+    height: 40px;
+    font-size: large;
+    background-color: #9ACF61;
+    border: 2px solid #9ACF61;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.green-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #9ACF61;
+    color: #FFFFFF;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+}
+
+.yellow-btn {
+    font-weight: 600;
+    height: 40px;
+    font-size: large;
+    background-color: #FCBC14;
+    border: 2px solid #FCBC14;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.yellow-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #FCBC14;
+    color: #FCBC14;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
