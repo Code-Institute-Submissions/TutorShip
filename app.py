@@ -15,13 +15,16 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/get_tutors')
-def get_subjects():
-    return render_template("tutors.html",
+@app.route('/tutors')
+def tutors():
+    return render_template('tutors.html',
     subjects_desktop=mongo.db.subjects.find(),
     subjects_mobile=mongo.db.subjects.find(),
     tutor_profile=mongo.db.profile.find())
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

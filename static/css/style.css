@@ -151,6 +151,28 @@ a:hover {
 
 /*--------------------------------------------------------------------- Buttons */
 
+.submit-btn {
+    font-weight: 600;
+    height: 40px;
+    background-color: #F7FAFD;
+    border: 2px solid #92BBFC;
+    color: #302A43;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: #92BBFC;
+    border: 2px solid #92BBFC;
+    color: #F7FAFD;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
 /*--------------------------------------------------------------------- Cards */
 
 .card-color {
@@ -295,6 +317,18 @@ a:hover {
 .search-form:hover .fa-search{
     background: #FCBC14;
     color: white;
+}
+
+#register-form {
+    min-height: 72vh;
+    background-color: #F7FAFD;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;
 }
 
 /*--------------------------------------------------------------------- Media Queries */
