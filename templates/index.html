@@ -40,10 +40,46 @@
             </div>
           </div>
           <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" class="d-none d-md-flex col-md-6">
-            <img src="../static/images/male-cutout.png" class="male-cutout img-responsive">
+            <img src="{{ url_for('static', filename='images/male-cutout.png') }}" class="male-cutout img-responsive">
           </div>
         </div> 
       </div>
     </header>
+
+    <section id="about-section" data-spy="scroll" class="container-flex text-white my-5">
+      <div class="jumbotron container bg-transparent">
+        <div class="row">
+          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000" class="col-md-6 align-self-center">
+            <h2 class="hero-text text-navy font-weight-bold mb-4">Why Us?</h2>
+            <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
+            <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
+            <div class="col-md-6 mb-3 p-0">
+              <button class="purple-btn px-4 rounded-pill">Find A Tutor</button>
+            </div>
+          </div>
+          <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk" data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500" class="d-flex col-md-6 pt-5 border-0 bg-transparent video-btn order-first order-sm-last">
+            <img id="video-image" src="{{ url_for('static', filename='images/video.png') }}">
+          </button>
+        </div> 
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>        
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" id="video" allow="autoplay"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 {% endblock %}

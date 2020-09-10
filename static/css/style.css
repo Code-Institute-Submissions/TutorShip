@@ -41,6 +41,10 @@ a:hover {
     color: #3D1EAE;
 }
 
+.text-navy {
+    color: #302A43;
+}
+
 /*--------------------------------------------------------------------- Nav */
 
 .nav-item {
@@ -172,6 +176,15 @@ a:hover {
     bottom: 0;
 }
 
+#video-image {
+    width: 100%;
+    height: auto;
+    object-fit: scale-down;
+    overflow: none;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
 /*--------------------------------------------------------------------- Buttons */
 
 button:focus {
@@ -268,6 +281,29 @@ button:focus {
     color: #F7FAFD;
 }
 
+.purple-btn {
+    font-weight: 600;
+    height: 40px;
+    font-size: large;
+    background-color: #3D1EAE;
+    border: 2px solid #3D1EAE;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.purple-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #3D1EAE;
+    color: #3D1EAE;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
 /*--------------------------------------------------------------------- Cards */
 
 .card-color {
@@ -309,6 +345,29 @@ button:focus {
 
 .card-footer small {
     color: #FCBC14;
+}
+
+/*----------------------------------------------------------------- Modal/s */
+
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.modal-body {
+    position:relative;
+    padding:0px;
+}
+
+.close {
+    position:absolute;
+    right:-30px;
+    top:0;
+    z-index:999;
+    font-size:2rem;
+    font-weight: normal;
+    color:#fff;
+    opacity:1;
 }
 
 /*--------------------------------------------------------------------- Footer */
