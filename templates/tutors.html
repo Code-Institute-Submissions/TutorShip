@@ -2,24 +2,24 @@
 {% block content %}
 
 <!-- Page Content -->
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row pt-5">
       <div id="sidebar" class="col-lg-3 mt-5 d-none d-md-block">
         <h2 class="h1 my-4 font-weight-semi">Subjects</h2>
         <div class="list-group">
             <a href="#" class="h5 list-group-item"><i class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors</a>
-        {% for subject in subjects_desktop %}
+            {% for subject in subjects_desktop %}
             <a href="#" class="h5 list-group-item">{{subject.subject_name}}</a>
-        {% endfor %}
+            {% endfor %}
       </div>
     </div>
 
     <div class="input-group d-flex col-lg-3 mt-5 d-md-none">
-            <select class="pl-4 custom-select" id="inputGroupSelect01">
-                <option selected disabled>Choose Your Subject</option>
-                {% for subject in subjects_mobile %}
-            <option >{{subject.subject_name}}</option>
-                {% endfor %}
+        <select class="pl-4 custom-select" id="inputGroupSelect01">
+            <option selected disabled>Choose Your Subject</option>
+            {% for subject in subjects_mobile %}
+            <option>{{subject.subject_name}}</option>
+            {% endfor %}
         </select>
     </div>
 
@@ -37,25 +37,28 @@
           
         </div>
         <div class="row">
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100 radius translate-y">
-              <a href="#"><img class="card-img-top radius-top" src="https://images.unsplash.com/photo-1580894732930-0babd100d356?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt=""></a>
-              <div class="card-body">
-                <div class="row card-subject">
-                  <h6 class="col-6"><img src="../static/images/grad-cap-sm.svg" class="pr-2">Maths</h6>
+          
+            {% for profile in tutor_profile %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 radius translate-y">
+                    <a href="#"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt=""></a>
+                    <div class="card-body">
+                        <div class="row card-subject">
+                            <h6 class="col-12"><img src="../static/images/grad-cap-sm.svg" class="pr-2">{{profile.subject}}</h6>
+                        </div>
+                        <h4 class="card-title font-weight-semi pt-3">
+                            <a href="#">{{profile.first_name}} {{profile.last_name}}</a>
+                        </h4>
+                        <p class="card-text small crop-text-2">{{profile.about}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    </div>
                 </div>
-                <h4 class="card-title font-weight-semi pt-3">
-                  <a href="#">Tutor Name</a>
-                </h4>
-                <p class="card-text small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
             </div>
-          </div>
-
+            {% endfor %}
+            
+        </div>
+    </div>
 </div>
-
 {% endblock %}
