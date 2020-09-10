@@ -17,16 +17,16 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
+@app.route('/home')
+def home():
+    return render_template('index.html')
+
 @app.route('/tutors')
 def tutors():
     return render_template('tutors.html',
     subjects_desktop=mongo.db.subjects.find(),
     subjects_mobile=mongo.db.subjects.find(),
     tutor_profile=mongo.db.profile.find())
-
-@app.route('/home')
-def home():
-    return render_template('index.html')
 
 @app.route('/pricing')
 def pricing():
