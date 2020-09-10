@@ -140,7 +140,11 @@ a:hover {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-  }
+}
+
+.hero-text {
+    font-size: 4.3rem;
+}
 
 /*--------------------------------------------------------------------- Image / Adjustments */
 
@@ -151,6 +155,21 @@ a:hover {
     max-height: 200px;
     object-fit: cover;
     object-position: 50% 20%;
+}
+
+.hero-background {
+    background-image: url("../images/hero-background.jpg");
+    max-height: 100%; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+.male-cutout {
+    overflow: hidden;
+    width: 100vw;
+    height: auto;
+    bottom: 0;
 }
 
 /*--------------------------------------------------------------------- Buttons */
@@ -223,6 +242,26 @@ a:hover {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+}
+
+.search-btn {
+    font-weight: 600;
+    height: 40px;
+    border-radius: 0px 50px 50px 0;
+    background-color: #9ACF61;
+    border: 2px solid #9ACF61;
+    color: #F7FAFD;
+    font-size: x-large;
+    height: 60px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #92BBFC;
+    border: 2px solid #92BBFC;
+    color: #F7FAFD;
 }
 
 /*--------------------------------------------------------------------- Cards */
@@ -387,6 +426,16 @@ a:hover {
 
 @media screen and (max-width: 767.98px) {
     
+    .hero-text {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .jumbotron {
+        text-align: center;
+    }
+
     .card-profile-image {
         width: 100%;
         max-height: 300px;
@@ -394,4 +443,26 @@ a:hover {
         object-position: 50% 20%;
     }
 
+}
+
+@media screen and (max-width: 821.98px) {
+    .hero-text {
+        font-size: 3rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+      width: 100%;
+      max-width: none;
+    }
+}
+
+@media screen and (max-width: 1199.98px) {
+    .purple-btn, .purple-border-btn, .yellow-btn, .yellow-border-btn {
+        font-size: .9rem;
+        padding: 0px 10px !important;
+    }
 }

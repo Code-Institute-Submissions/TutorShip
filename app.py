@@ -14,6 +14,8 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
+
+
 @app.route('/')
 @app.route('/tutors')
 def tutors():
@@ -21,6 +23,10 @@ def tutors():
     subjects_desktop=mongo.db.subjects.find(),
     subjects_mobile=mongo.db.subjects.find(),
     tutor_profile=mongo.db.profile.find())
+
+@app.route('/home')
+def home():
+    return render_template('index.html')
 
 @app.route('/pricing')
 def pricing():
