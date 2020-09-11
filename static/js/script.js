@@ -20,4 +20,8 @@ $(document).ready(function() {
         $("#video").attr('src',$videoSrc); 
     })
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 });

@@ -158,6 +158,22 @@ p .text-yellow:hover {
     font-size: 4.3rem;
 }
 
+.tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #302A43;
+    text-align: center;
+    background-color: #92BBFC;
+    border-radius: .25rem;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=right] .arrow::before, .tooltip.bs-tooltip-right .arrow::before {
+    margin-top: 0px;
+    content: "";
+    border-width: 5px 5px 5px 0;
+    border-right-color: #92BBFC;
+}
+
 /*--------------------------------------------------------------------- Image / Adjustments */
 
 /* Positioning card image src: https://css-tricks.com/almanac/properties/o/object-position/ */
