@@ -14,14 +14,17 @@
       </div>
     </div>
 
-    <div class="input-group d-flex col-lg-3 mt-5 d-md-none">
+    <form class="input-group d-flex col-lg-3 mt-5 d-md-none">
         <select class="pl-4 custom-select" id="inputGroupSelect01">
             <option selected disabled>Choose Your Subject</option>
             {% for subject in subjects_mobile %}
             <option>{{subject.subject_name}}</option>
             {% endfor %}
         </select>
-    </div>
+        <span class="input-group-btn">
+            <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
+        </span>
+    </form>
 
     <div class="col-lg-9 mt-5 pl-lg-5">
         <div class="row">
