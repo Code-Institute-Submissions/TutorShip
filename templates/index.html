@@ -11,7 +11,7 @@
             <p class="mb-5 d-none d-sm-flex">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
             <h2 class="font-weight-semi text-yellow my-3">Find a tutor in Dublin:</h2>
             <div class="row">
-              <div class="input-group d-flex col-11 mb-4">
+              <div class="input-group d-flex col-12 col-sm-11 mb-4">
                 <select class="pl-4 custom-select" id="inputGroupSelect01">
                   <option selected disabled>Choose Your Subject</option>
                   <option value="1">Accounting</option>
@@ -34,11 +34,11 @@
                   <option value="18">Technology</option>
                 </select>
                 <span class="input-group-btn">
-                  <button class="search-btn px-4" type="submit">Search</button>
+                  <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
                 </span>
               </div>
             </div>
-            <p class="d-flex text-right text-white">Register as a tutor?<a href="{{url_for('register')}}" class="d-flex pl-2 text-light">Click here</a></p>
+            <p class="d-flex col-12 text-center text-white">Register as a tutor?<a href="{{url_for('register')}}" class="d-flex pl-2 text-yellow">Click here</a></p>
           </div>
           <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" class="d-none d-md-flex col-md-6">
             <img src="{{ url_for('static', filename='images/male-cutout.png') }}" class="male-cutout img-responsive">
@@ -55,7 +55,7 @@
             <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
             <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
             <div class="col-md-6 mb-3 p-0">
-              <button class="purple-btn px-4 rounded-pill">Find A Tutor</button>
+              <a href="{{url_for('tutors')}}" class="purple-btn px-4 rounded-pill pt-1">Find A Tutor</a>
             </div>
           </div>
           <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk" data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500" class="d-flex col-md-6 pt-5 border-0 bg-transparent video-btn  order-first order-sm-last">
@@ -81,6 +81,24 @@
         </div>
       </div>
     </div>
+
+    <section class="container-flex text-white my-5">
+      <div class="jumbotron container bg-transparent">
+        <div class="row">
+          <div data-aos="fade-right" data-aos-duration="1000" class="d-flex col-md-6 pt-5 text-center justify-content-center">
+            <img id="results-image" src="./static/images/results.png">
+          </div>
+          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="col-md-6 align-self-center">
+            <h2 class="hero-text text-navy font-weight-bold mb-4">Resuts driven</h2>
+            <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
+            <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
+            <div class="col-md-6 mb-3 p-0">
+              <a href="{{url_for('register')}}" class="yellow-btn px-4 rounded-pill pt-1">Sign Up now</a>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section>
 
   </main>
 {% endblock %}

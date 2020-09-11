@@ -45,6 +45,14 @@ a:hover {
     color: #302A43;
 }
 
+.text-yellow {
+    color: #FCBC14;
+}
+
+.text-yellow:hover {
+    color: #ffffff;
+}
+
 /*--------------------------------------------------------------------- Nav */
 
 .nav-item {
@@ -183,6 +191,13 @@ a:hover {
     overflow: none;
     padding-left: 30px;
     cursor: pointer;
+}
+
+#results-image {
+    width: 80%;
+    height: auto;
+    object-fit: scale-down;
+    overflow: none;
 }
 
 /*--------------------------------------------------------------------- Buttons */
@@ -506,6 +521,17 @@ button:focus {
         object-position: 50% 20%;
     }
 
+    .search-btn {
+        height: 35px;
+        font-size: small;
+    }
+
+    .custom-select  {
+        font-weight: 600;
+        font-size: small;
+        height: 35px;
+    }
+
 }
 
 @media screen and (max-width: 821.98px) {
@@ -524,8 +550,5 @@ button:focus {
 }
 
 @media screen and (max-width: 1199.98px) {
-    .purple-btn, .purple-border-btn, .yellow-btn, .yellow-border-btn {
-        font-size: .9rem;
-        padding: 0px 10px !important;
-    }
+
 }
