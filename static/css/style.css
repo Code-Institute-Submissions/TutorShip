@@ -53,6 +53,10 @@ p .text-yellow:hover {
     color: #ffffff;
 }
 
+.bg-blue {
+    background-color: #F7FAFD;
+}
+
 /*--------------------------------------------------------------------- Nav */
 
 .nav-item {
@@ -214,6 +218,10 @@ p .text-yellow:hover {
     height: auto;
     object-fit: scale-down;
     overflow: none;
+}
+
+.testimonial-img {
+    margin-bottom: -100px;
 }
 
 /*--------------------------------------------------------------------- Buttons */
@@ -548,6 +556,10 @@ button:focus {
         height: 35px;
     }
 
+    .testimonial-img {
+        margin-bottom: -100px;
+    }
+
 }
 
 @media screen and (max-width: 821.98px) {
@@ -562,6 +574,10 @@ button:focus {
     .container {
       width: 100%;
       max-width: none;
+    }
+
+    .testimonial-img {
+        margin-bottom: -50px;
     }
 }
 

@@ -86,7 +86,7 @@
       <div class="jumbotron container bg-transparent">
         <div class="row">
           <div data-aos="fade-right" data-aos-duration="1000" class="d-flex col-md-6 pt-5 text-center justify-content-center">
-            <img id="results-image" src="./static/images/results.png">
+            <img id="results-image" src="{{ url_for('static', filename='images/results.png') }}">
           </div>
           <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="col-md-6 align-self-center">
             <h2 class="hero-text text-navy font-weight-bold mb-4">Resuts driven</h2>
@@ -98,6 +98,39 @@
           </div>
         </div> 
       </div>
+    </section>
+
+    <section id="testimonials" class="container text-white my-5 pt-5">
+      <h2 class="hero-text text-navy font-weight-bold mb-5 py-5">What our students say...</h2>
+      <div class="row">
+          <div data-aos="fade-up" data-aos-duration="1000" class="col-lg-6 col-md-6 mb-4">
+            <div class="h-100">
+              <div class="d-flex justify-content-end">
+                <img class="testimonial-img" src="{{ url_for('static', filename='images/testimonial-profile-girl.png') }}" alt="">
+              </div>
+              <div class="bg-blue pt-5 card-body text-navy radius">
+                  <h3 class="font-weight-semi">Aileen O'Sullivan</h3>
+                  <h5 class="font-weight-semi text-muted">Leaving Certificate Student</h5>
+                <p class="card-text col-12 col-sm-8 p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <div class="d-flex text-yellow font-weight-semi justify-content-center">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="col-lg-6 col-md-6 mb-4">
+            <div class="h-100">
+              <div class="d-flex justify-content-end">
+                <img class="testimonial-img" src="{{ url_for('static', filename='images/testimonial-profile-guy.png') }}" alt="">
+              </div>
+              <div class="bg-blue pt-5 card-body text-navy radius">
+                  <h3 class="font-weight-semi">Cormac Mahoney</h3>
+                  <h5 class="font-weight-semi text-muted">Leaving Certificate Student</h5>
+                <p class="card-text col-12 col-sm-8 p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <div class="d-flex text-yellow font-weight-semi justify-content-center">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
 
   </main>
