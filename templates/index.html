@@ -3,6 +3,7 @@
 {% block content %}
 <main class="container-fluid p-0">
     
+    <!-- Hero/Header section -->
     <header class="container-flex bg-purple hero-background text-white">
       <div class="jumbotron container mt-5 bg-transparent pb-0">
         <div class="row">
@@ -47,6 +48,7 @@
       </div>
     </header>
 
+    <!-- About section -->
     <section id="about-section" data-spy="scroll" class="container-flex text-white my-2 my-sm-5">
       <div class="jumbotron container bg-transparent">
         <div class="row">
@@ -82,6 +84,7 @@
       </div>
     </div>
 
+    <!-- Results section -->
     <section class="container-flex text-white my-2 my-sm-5">
       <div class="jumbotron container bg-transparent">
         <div class="row">
@@ -100,13 +103,14 @@
       </div>
     </section>
 
+    <!-- Testimonials section -->
     <section id="testimonials" class="container text-white my-2 my-sm-5 pt-2 pt-sm-5">
       <h2 class="hero-text text-navy font-weight-bold mb-2 mb-sm-5 py-2 py-sm-5">What our students say...</h2>
       <div class="row">
           <div data-aos="fade-up" data-aos-duration="1000" class="col-lg-6 col-md-6 mb-4">
             <div class="h-100">
               <div class="d-flex justify-content-end">
-                <img class="testimonial-img" src="{{ url_for('static', filename='images/testimonial-profile-girl.png') }}" alt="">
+                <img class="minus-margin" src="{{ url_for('static', filename='images/testimonial-profile-girl.png') }}" alt="">
               </div>
               <div class="bg-blue pt-5 card-body text-navy radius">
                   <h3 class="font-weight-semi">Aileen O'Sullivan</h3>
@@ -120,7 +124,7 @@
           <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="col-lg-6 col-md-6 mb-4">
             <div class="h-100">
               <div class="d-flex justify-content-end">
-                <img class="testimonial-img" src="{{ url_for('static', filename='images/testimonial-profile-guy.png') }}" alt="">
+                <img class="minus-margin" src="{{ url_for('static', filename='images/testimonial-profile-guy.png') }}" alt="">
               </div>
               <div class="bg-blue pt-5 card-body text-navy radius">
                   <h3 class="font-weight-semi">Cormac Mahoney</h3>
@@ -131,6 +135,26 @@
             </div>
           </div>
         </div>
+    </section>
+
+    <!-- Subscribe section -->
+    <section class="container-fluid bg-divide pb-5 text-white">
+      <div data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="1000" class="container text-white">
+        <div class="d-flex justify-content-end pb-5 pb-md-0">
+          <img class="minus-margin-100 pr-5" src="{{ url_for('static', filename='images/message.png') }}" alt="">
+        </div>
+        <div class="bg-yellow pt-5 card-body text-navy radius pl-4 pl-sm-5">
+          <h3 class="font-weight-semi text-white">Get notified about new tutors in your area</h3>
+          <form id="subscribe">
+            <div class="input-group col-12 col-lg-8 ml-0 p-0 my-4">
+                <input type="email" class="form-control subscribe-email pl-4" id="inputEmail" placeholder="Enter your email" required="">
+                <span class="input-group-btn">
+                    <button class="subscribe-btn px-4" type="submit">Send</button>
+                </span>
+            </div>
+          </form> 
+        </div>
+      </div>
     </section>
 
   </main>

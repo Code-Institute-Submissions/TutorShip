@@ -57,6 +57,14 @@ p .text-yellow:hover {
     background-color: #F7FAFD;
 }
 
+.bg-yellow {
+    background-color: #FCBC14;
+}
+
+.bg-divide {
+    background: linear-gradient(0deg, #1C185D 40%, #FFFFFF 40%);
+}
+
 /*--------------------------------------------------------------------- Nav */
 
 .nav-item {
@@ -220,7 +228,11 @@ p .text-yellow:hover {
     overflow: none;
 }
 
-.testimonial-img {
+.minus-margin {
+    margin-bottom: -100px;
+}
+
+.minus-margin-100 {
     margin-bottom: -100px;
 }
 
@@ -524,6 +536,29 @@ button:focus {
     margin: 0 auto;
 }
 
+.subscribe-email {
+    background-color: rgba(255,255,255, .22);
+    border: none;
+    border-radius: 50px 0 0 50px;
+    font-size: x-large;
+    font-weight: 300;
+    color: white;
+}
+
+#subscribe .form-control::-webkit-input-placeholder {
+    color: #FFFFFF;
+}
+
+.subscribe-btn {
+    background-color: #3D1EAE;
+    border-radius: 0 50px 50px 0;
+    border: none;
+    font-size: x-large;
+    font-weight: 600;
+    color: white;
+    padding: 7px 0;;
+}
+
 /*--------------------------------------------------------------------- Media Queries */
 
 @media screen and (max-width: 767.98px) {
@@ -556,7 +591,7 @@ button:focus {
         height: 35px;
     }
 
-    .testimonial-img {
+    .minus-margin {
         margin-bottom: -100px;
     }
 
@@ -576,7 +611,7 @@ button:focus {
       max-width: none;
     }
 
-    .testimonial-img {
+    .minus-margin {
         margin-bottom: -50px;
     }
 }
