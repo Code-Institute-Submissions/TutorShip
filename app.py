@@ -1,7 +1,9 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, session, flash, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, \
+     check_password_hash
 
 from os import path
 if path.exists("env.py"):
@@ -11,6 +13,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'tutorshipDB'
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -36,13 +39,36 @@ def pricing():
 def login():
     return render_template('login.html')
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    return render_template('register.html')
-
 @app.route('/create_profile', methods=['GET', 'POST'])
 def create_profile():
-    return render_template('create_profile.html')
+    if 'username' in session:
+        flash('You have sucessfully registered', 'info')
+        return render_template('create_profile.html')
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    users = mongo.db.users
+
+    if request.method == 'POST':
+        new_user = request.form.get('username').lower()
+        password = request.form.get('password')
+        username_exists = users.find_one({'username': request.form.get('username')})
+
+        # check if username exists - if not, the redirect to create_profile page
+        if username_exists is None:
+            users.insert_one(
+                { 'username': new_user, 'password': generate_password_hash(password) })
+            session['username'] = new_user
+            return redirect(url_for('create_profile', username=session["username"]))
+        
+        # if username exists flash try again message
+        else:
+            flash('Username already exists. Please try another username.', 'warning')
+            return redirect(url_for('register'))
+
+    return render_template('register.html')
+
 
 @app.route('/insert_profile', methods=['POST'])
 def insert_profile():
