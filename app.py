@@ -44,6 +44,12 @@ def register():
 def create_profile():
     return render_template('create_profile.html')
 
+@app.route('/insert_profile', methods=['POST'])
+def insert_profile():
+    profile = mongo.db.profile
+    profile.insert_one(request.form.to_dict())
+    return redirect(url_for('tutors'))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=(os.environ.get('PORT')),

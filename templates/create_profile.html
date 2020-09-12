@@ -2,7 +2,7 @@
 
 {% block content %}
   <main id="register-form" class="container-fluid d-flex align-items-center pb-5 mt-5">
-    <form class="form-signin mt-5">
+    <form action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
       <div class="text-center mb-4 mt-5">
         <h1 class="mb-3 font-weight-semi"><i class="fas fa-address-card pr-3"></i> Your Tutor Profile</h1>
       </div>
@@ -65,7 +65,7 @@
           <option value="1">1 Years</option>
           <option value="2">2 Years</option>
           <option value="3">3 Years</option>
-          <option value="4">5+ Years</option>
+          <option value="5">5+ Years</option>
         </select>
       </div>
       
