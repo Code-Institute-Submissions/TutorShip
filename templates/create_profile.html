@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+  <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
+    {{ message }} <i class="fas fa-user-check ml-2"></i> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </h4>
+{% endfor %} {% endif %} {% endwith %}
+
   <main id="register-form" class="container-fluid d-flex align-items-center pb-5 mt-5">
     <form action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
       <div class="text-center mb-4 mt-5">
-        <h1 class="mb-3 font-weight-semi"><i class="fas fa-address-card pr-3"></i> Your Tutor Profile</h1>
+        <h1 class="mb-3 font-weight-semi text-purple">Welcome {{ session['username'].capitalize() }},</h1>
+        <h2 class="mb-3 text-purple"> Let's create your tutor profile.</h2>
       </div>
 
       <label for="first_name">First Name</label>
