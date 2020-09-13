@@ -18,12 +18,13 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
+# iIndex
 @app.route('/')
 @app.route('/home')
 def home():
     return render_template('index.html')
 
+# Tutors
 @app.route('/tutors')
 def tutors():
     return render_template('tutors.html',
@@ -31,25 +32,24 @@ def tutors():
     subjects_mobile=mongo.db.subjects.find(),
     tutor_profile=mongo.db.profile.find())
 
-@app.route('/tutors/profile')
-def profile():
-    return render_template('profile.html')
+# Tutor profile
+@app.route('/tutors/<username_id>')
+def tutor_profile(username_id):
+    user_profile = mongo.db.profile.find_one({'_id': ObjectId(username_id)})
+    return render_template('profile.html',
+    tutor_profile=mongo.db.profile.find())
 
+# Pricing
 @app.route('/pricing')
 def pricing():
     return render_template('pricing.html')
 
+# Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('login.html')
 
-@app.route('/create_profile', methods=['GET', 'POST'])
-def create_profile():
-    if 'username' in session:
-        flash('You have sucessfully registered', 'info')
-        return render_template('create_profile.html')
-
-
+# Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     users = mongo.db.users
@@ -73,7 +73,14 @@ def register():
 
     return render_template('register.html')
 
+# Create profile
+@app.route('/create_profile', methods=['GET', 'POST'])
+def create_profile():
+    if 'username' in session:
+        flash('You have sucessfully registered', 'info')
+        return render_template('create_profile.html')
 
+# Insert profile
 @app.route('/insert_profile', methods=['POST'])
 def insert_profile():
     profile = mongo.db.profile
