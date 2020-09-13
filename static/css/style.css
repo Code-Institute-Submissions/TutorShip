@@ -186,6 +186,10 @@ p .text-yellow:hover {
     border-right-color: #92BBFC;
 }
 
+.back-arrow:hover {
+    padding-right: 10px !important;
+}
+
 /*--------------------------------------------------------------------- Image / Adjustments */
 
 /* Positioning card image src: https://css-tricks.com/almanac/properties/o/object-position/ */
@@ -351,6 +355,51 @@ button:focus {
     background-color: transparent;
     border: 2px solid #3D1EAE;
     color: #3D1EAE;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.edit-delete-btn {
+    font-weight: 600;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid #92BBFC;
+    color: #302A43;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.edit-delete-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: #92BBFC;
+    border: 2px solid #92BBFC;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.purple-border-btn {
+    font-weight: 600;
+    height: 40px;
+    font-size: large;
+    background-color: #ffffff;
+    border: 2px solid #3D1EAE;
+    color: #3D1EAE;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.purple-border-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: #3D1EAE;
+    border: 2px solid #3D1EAE;
+    color: #ffffff;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -595,6 +644,13 @@ button:focus {
 
     .minus-margin {
         margin-bottom: -100px;
+    }
+    
+    #profile-img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        object-position: top;
     }
 
 }

@@ -31,6 +31,10 @@ def tutors():
     subjects_mobile=mongo.db.subjects.find(),
     tutor_profile=mongo.db.profile.find())
 
+@app.route('/tutors/profile')
+def profile():
+    return render_template('profile.html')
+
 @app.route('/pricing')
 def pricing():
     return render_template('pricing.html')
