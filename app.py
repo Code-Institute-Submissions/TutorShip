@@ -51,7 +51,7 @@ def register():
     users = mongo.db.users
 
     if request.method == 'POST':
-        new_user = request.form.get('username').lower()
+        new_user = request.form.get('username')
         password = request.form.get('password')
         username_exists = users.find_one({'username': request.form.get('username')})
 
