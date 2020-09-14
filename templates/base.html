@@ -26,23 +26,40 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item pr-md-3">
+                  {% if 'username' in session %}
+                  <li class="nav-item pr-md-3">
                     <a class="nav-link" href="{{url_for('tutors')}}">Tutors
                     <span class="sr-only">(current)</span>
                     </a>
-                </li>
-                <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="{{url_for('pricing')}}">Pricing</a>
-                </li>
-                <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="{{url_for('home')+ '#about-section'}}">About</a>
-                </li>
-                <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="{{url_for('login')}}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('register')}}">Register</a>
-                </li>
+                  </li>
+                  <li class="nav-item pr-md-3">
+                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Coming Soon">Student Dashboard</a>
+                  </li>
+                  <li class="nav-item pr-md-3">
+                      <a class="nav-link" href="#">My Profile</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('logout')}}">Logout<i class="pl-2 fas fa-sign-out-alt"></i> </a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item pr-md-3">
+                    <a class="nav-link" href="{{url_for('tutors')}}">Tutors
+                    <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item pr-md-3">
+                      <a class="nav-link" href="{{url_for('pricing')}}">Pricing</a>
+                  </li>
+                  <li class="nav-item pr-md-3">
+                      <a class="nav-link" href="{{url_for('home')+ '#about-section'}}">About</a>
+                  </li>
+                  <li class="nav-item pr-md-3">
+                      <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('register')}}">Register</a>
+                  </li>
+                  {% endif %}
                 </ul>
             </div>
         </div>
@@ -65,7 +82,11 @@
         <div class="offset-lg-1 col-lg-2 col-6 pt-4 pl-sm-5">
           <h5 class="text-uppercase">Services</h5>
           <ul class="list-unstyled">
+            {% if 'username' not in session %}
             <li><a href="{{url_for('register')}}">Tutor Register</a></li>
+            {% else %}
+            <li><a href="{{url_for('tutors')}}">Your Profile</a></li>
+            {% endif %}
             <li><a href="{{url_for('pricing')}}">Pricing</a></li>
             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Coming Soon">Features</a></li>
             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Coming Soon">FAQ</a></li>
