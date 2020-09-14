@@ -51,11 +51,6 @@ def tutors_subject(subject):
 def pricing():
     return render_template('pricing.html')
 
-# Login
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    return render_template('login.html')
-
 # Register
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -80,6 +75,37 @@ def register():
 
     return render_template('register.html')
 
+# Login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    # function to find a user from the database
+    def registered_user(username):
+        user = mongo.db.users
+        return user.find_one({"username": username})
+
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = registered_user(username)
+
+        # check if user is registered
+        if user:
+            if check_password_hash(user['password'], password):
+                flash(f'Welcome back {username}!', 'success')
+                session['username'] = username
+                return redirect(url_for('home', username=session['username']))
+
+            # flash error message if password is incorrect
+            else:
+                flash('Oops, there was a problem logging in. Please try again.')
+                return redirect(url_for('login'))
+        else:
+            # flash error if username is not on file - prompt to register
+            flash(f"We don't seem to have a {username} on file. Want to regitser?")
+            return redirect(url_for('login'))
+
+    return render_template('login.html')
+
 # Create profile
 @app.route('/create_profile', methods=['GET', 'POST'])
 def create_profile():
@@ -93,6 +119,13 @@ def insert_profile():
     profile = mongo.db.profile
     profile.insert_one(request.form.to_dict())
     return redirect(url_for('tutors'))
+
+# Logout
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You have been logged out')
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
