@@ -179,11 +179,20 @@ p .text-yellow:hover {
     border-radius: .25rem;
 }
 
+/* Recolour tooltip src: https://stackoverflow.com/questions/36143382/re-color-tooltip-in-bootstrap-4 */
+
 .tooltip.bs-tooltip-auto[x-placement^=right] .arrow::before, .tooltip.bs-tooltip-right .arrow::before {
     margin-top: 0px;
     content: "";
     border-width: 5px 5px 5px 0;
     border-right-color: #92BBFC;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .tooltip.bs-tooltip-bottom .arrow::before {
+    margin-left: -3px;
+    content: "";
+    border-width: 0 5px 5px;
+    border-bottom-color: #92BBFC;
 }
 
 .back-arrow:hover {
