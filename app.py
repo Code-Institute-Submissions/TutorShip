@@ -110,7 +110,7 @@ def login():
 @app.route('/create_profile', methods=['GET', 'POST'])
 def create_profile():
     if 'username' in session:
-        flash('You have sucessfully registered', 'info')
+        flash('You have sucessfully registered', 'success')
         return render_template('create_profile.html')
 
 # Insert profile
@@ -119,6 +119,14 @@ def insert_profile():
     profile = mongo.db.profile
     profile.insert_one(request.form.to_dict())
     return redirect(url_for('tutors'))
+
+# Email subscription
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    subscriber = mongo.db.subscribers
+    subscriber.insert_one(request.form.to_dict())
+    flash('Thanks for subscribing!', 'success')
+    return redirect(url_for('home'))
 
 # Logout
 @app.route('/logout')

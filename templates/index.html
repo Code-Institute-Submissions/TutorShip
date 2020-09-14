@@ -157,9 +157,9 @@
         </div>
         <div class="bg-yellow pt-5 card-body text-navy radius pl-4 pl-sm-5">
           <h3 class="font-weight-semi text-white">Get notified about new tutors in your area</h3>
-          <form id="subscribe">
+          <form method="POST" action="/subscribe" id="subscribe">
             <div class="input-group col-12 col-lg-8 ml-0 p-0 my-4">
-                <input type="email" class="form-control subscribe-email pl-4" id="inputEmail" placeholder="Enter your email" required="">
+                <input type="email" class="form-control subscribe-email pl-4" id="email" name="email" placeholder="Enter your email" required="">
                 <span class="input-group-btn">
                   <button class="subscribe-btn px-4" type="submit">Send</button>
                 </span>
