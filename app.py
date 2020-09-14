@@ -18,7 +18,7 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# iIndex
+# Index
 @app.route('/')
 @app.route('/home')
 def home():
@@ -32,12 +32,19 @@ def tutors():
     subjects_mobile=mongo.db.subjects.find(),
     tutor_profile=mongo.db.profile.find())
 
-# Tutor profile
+# Tutor profile page
 @app.route('/tutors/<username_id>/')
-def tutor_profile(username_id):
+def tutor_page(username_id):
     profile = mongo.db.profile
     tutor = profile.find_one({'_id': ObjectId(username_id)})
     return render_template('profile.html', tutor=tutor)
+
+# Subject category profiles
+@app.route('/<subject>')
+def tutors_subject(subject):
+    subjects = mongo.db.subjects
+    subject_list = subjects.find({"subject_name": subject})
+    return render_template('tutors.html', subject_list=subject_list, subjects_desktop=mongo.db.subjects.find())
 
 # Pricing
 @app.route('/pricing')
