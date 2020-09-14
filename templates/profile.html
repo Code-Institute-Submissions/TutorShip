@@ -6,7 +6,7 @@
 
     <div class="row pt-5">
       <div class="col-sm-6 mt-5">
-        <img id="profile-img" class="card-img-top text-center radius" src="https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="">
+        <img id="profile-img" class="card-img-top text-center radius" src="{{ tutor.profile_image }}" alt="">
         <div class="row mt-5">
           <div class="pl-3">
             <button class="edit-delete-btn h5 font-weight-semi rounded-pill px-4 mr-4"><i class="fas fa-user-edit pr-2"></i>Edit</button>
@@ -16,21 +16,21 @@
       </div>
 
       <section class="col-sm-6 mt-5 pl-lg-5">
-        <a href="#" class="back-arrow my-2 font-weight-semi float-right pb-3 mb-5 d-none d-sm-flex"><i class="fas fa-long-arrow-alt-left pr-2 align-self-center"></i>Back to Tutors</a>
+        <a href="{{url_for('tutors')}}" class="back-arrow my-2 font-weight-semi float-right pb-3 mb-5 d-none d-sm-flex"><i class="fas fa-long-arrow-alt-left pr-2 align-self-center"></i>Back to Tutors</a>
         <h3 class="mt-5 font-weight-semi text-yellow">Hello, I'm...</h3>
-        <h1 class="mt-2 mb-4 font-weight-semi">Tutor Name</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem animi est amet maiores aspernatur, doloremque quis consequatur. Culpa dignissimos debitis dolorem quia incidunt amet eos nam ratione sequi pariatur tempore deleniti, nemo laborum laboriosam, inventore fuga fugit aut vitae officiis.</p>
+        <h1 class="mt-2 mb-4 font-weight-semi">{{ tutor.first_name }}  {{ tutor.last_name}}</h1>
+        <p>{{ tutor.about }}</p>
         
         <div class="row">
           <div class="col-md-4">
             <h3 class="font-weight-semi my-4">Subject</h3>
-            <h6><img src="../static/images/grad-cap-sm.svg" class="pr-2">Maths</h6>
+            <h6><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{ tutor.subject }}</h6>
           </div>
 
           <div class="col-md-8">
             <h3 class="font-weight-semi my-4">Qualifications</h3>
-            <h6><img src="../static/images/tick.svg" class="pr-2">B.A. Hons Post Primary Education</h6>
-            <h6><img src="../static/images/star.svg" class="pr-2">3+ Years Tutoring</h6>
+            <h6><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2">{{ tutor.qualification }}</h6>
+            <h6><img src="{{ url_for('static', filename='images/star.svg') }}" class="pr-2">{{ tutor.years_tutoring }}+ Years Tutoring</h6>
           </div>
         </div>
         
@@ -45,7 +45,7 @@
         
         <div class="row mt-4 d-flex d-sm-none text-center">
           <div class="col-md-4 mb-3">
-            <button class="yellow-btn px-4 rounded-pill"><i class="fas fa-users pr-2"></i>Back to tutors</button>
+            <a href="{{url_for('tutors')}}" class="yellow-btn px-4 rounded-pill p-1"><i class="fas fa-users pr-2"></i>Back to tutors</a>
           </div>
         </div>
       </section>

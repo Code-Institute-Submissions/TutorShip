@@ -33,11 +33,11 @@ def tutors():
     tutor_profile=mongo.db.profile.find())
 
 # Tutor profile
-@app.route('/tutors/<username_id>')
+@app.route('/tutors/<username_id>/')
 def tutor_profile(username_id):
-    user_profile = mongo.db.profile.find_one({'_id': ObjectId(username_id)})
-    return render_template('profile.html',
-    tutor_profile=mongo.db.profile.find())
+    profile = mongo.db.profile
+    tutor = profile.find_one({'_id': ObjectId(username_id)})
+    return render_template('profile.html', tutor=tutor)
 
 # Pricing
 @app.route('/pricing')
