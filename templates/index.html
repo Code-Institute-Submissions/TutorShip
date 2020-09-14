@@ -47,7 +47,9 @@
                 </span>
               </div>
             </form>
+            {% if 'username' not in session %}
             <p class="d-flex col-12 p-0 text-white">Register as a tutor?<a href="{{url_for('register')}}" class="d-flex pl-2 text-yellow">Click here</a></p>
+            {% endif %}
           </div>
           <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" class="d-none d-md-flex col-md-6">
             <img src="{{ url_for('static', filename='images/male-cutout.png') }}" class="male-cutout img-responsive">
@@ -103,9 +105,11 @@
             <h2 class="hero-text text-navy font-weight-bold mb-4">Resuts driven</h2>
             <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
             <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
+            {% if 'username' not in session %}
             <div class="col-md-6 mb-3 p-0">
               <a href="{{url_for('register')}}" class="yellow-btn px-4 rounded-pill pt-1">Sign Up now</a>
             </div>
+            {% endif %}
           </div>
         </div> 
       </div>
