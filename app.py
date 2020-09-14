@@ -61,6 +61,16 @@ def register():
         password = request.form.get('password')
         username_exists = users.find_one({'username': request.form.get('username')})
 
+        # check if password is 5 characters or more
+        if len(password) < 5:
+            flash('Please use 5 or more characters for your password.', 'warning')
+            return redirect(url_for('register'))
+        
+        # check if password includes 1 or more numbers
+        if not any(char.isdigit() for char in password):
+            flash('Password must include at least one number.', 'warning')
+            return redirect(url_for('register'))
+
         # check if username exists - if not, the redirect to create_profile page
         if username_exists is None:
             users.insert_one(
