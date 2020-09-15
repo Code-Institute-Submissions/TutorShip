@@ -85,7 +85,7 @@ def register():
             return redirect(url_for('register'))
 
     return render_template('register.html')
-    
+
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -128,8 +128,23 @@ def create_profile():
 @app.route('/insert_profile', methods=['POST'])
 def insert_profile():
     profile = mongo.db.profile
-    profile.insert_one(request.form.to_dict())
-    return redirect(url_for('tutors'))
+
+    if request.method == 'POST':
+        profile.insert_one({
+            'first_name': request.form.get('first_name'),
+            'last_name': request.form.get('last_name'),
+            'email': request.form.get('email'),
+            'about': request.form.get('about'),
+            'subject': request.form.get('subject'),
+            'qualification': request.form.get('qualification'),
+            'years_tutoring': request.form.get('years_tutoring'),
+            'profile_image': request.form.get('profile_image'),
+            'created_by': session['username']
+        })
+
+        flash("Your tutor profile is live!", 'success')
+
+        return redirect(url_for('tutor_page'))
 
 # Email subscription
 @app.route('/subscribe', methods=['POST'])
