@@ -615,7 +615,7 @@ button:focus {
     font-size: x-large;
     font-weight: 600;
     color: white;
-    padding: 7px 0;;
+    padding: 7px 0;
 }
 
 /*--------------------------------------------------------------------- Media Queries */
@@ -660,6 +660,27 @@ button:focus {
         height: 400px;
         object-fit: cover;
         object-position: top;
+    }
+
+    .subscribe-email {
+        font-weight: 600;
+        font-size: smaller;
+        height: 35px;
+    }
+
+    .subscribe-btn {
+        font-weight: 600;
+        font-size: small;
+        height: 35px;
+    }
+
+    #envelope {
+        width: 200px;
+    }
+
+    .bg-divide h3 {
+        font-size: 1.2em;
+        text-align: center;
     }
 
 }
