@@ -151,7 +151,7 @@ def insert_profile():
 
         flash("Your tutor profile is live!", 'success')
 
-        return redirect(url_for('tutor_page'))
+        return redirect(url_for('my_profile', creator_id=session['username']))
 
 # Delete profile
 @app.route('/delete_profile/<username_id>')
