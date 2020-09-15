@@ -80,7 +80,7 @@
           <a href="https://twitter.com" target="_blank"><img src="{{ url_for('static', filename='images/twitter.svg') }}" class="translate-y"></a>
         </div>
         <div class="offset-lg-1 col-lg-2 col-6 pt-4 pl-sm-5">
-          <h5 class="text-uppercase">Services</h5>
+          <h5 class="text-uppercase font-weight-semi">Services</h5>
           <ul class="list-unstyled">
             {% if 'username' not in session %}
             <li><a href="{{url_for('register')}}">Tutor Register</a></li>
@@ -93,7 +93,7 @@
           </ul>
         </div>
         <div class="col-lg-2 col-6 pt-4 pl-sm-5">
-          <h5 class="text-uppercase">Company</h5>
+          <h5 class="text-uppercase font-weight-semi">Company</h5>
           <ul class="list-unstyled ">
             <li><a href="{{url_for('home')+ '#about-section'}}">About</a></li>
             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Coming Soon">Terms</a></li>
@@ -102,7 +102,7 @@
           </ul>
         </div>
         <div class="col-lg-4 pt-4 pl-sm-5">
-          <h5 class="text-uppercase">Contact Us</h5>
+          <h5 class="text-uppercase font-weight-semi">Contact Us</h5>
           <ul class="list-unstyled">
             <li><p>We're always happy to help</p></li>
             <li><a href="mailto:hello@tutorship.ie" class="h3 font-weight-bold">hello@tutorship.ie</a></li>
