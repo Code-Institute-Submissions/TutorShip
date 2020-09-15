@@ -146,6 +146,15 @@ def insert_profile():
 
         return redirect(url_for('tutor_page'))
 
+# Delete profile
+@app.route('/delete_profile/<username_id>')
+def delete_profile(username_id):
+    profile = mongo.db.profile
+    profile.remove({'_id': ObjectId(username_id)})
+    flash("Success, your profile has been deleted.")
+
+    return redirect(url_for('tutors'))
+
 # Email subscription
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
