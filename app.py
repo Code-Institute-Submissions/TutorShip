@@ -58,8 +58,9 @@ def register():
 
     if request.method == 'POST':
         new_user = request.form.get('username')
+        new_email = request.form.get('email')
         password = request.form.get('password')
-        username_exists = users.find_one({'username': request.form.get('username')})
+        email_exists = users.find_one({'email': request.form.get('email')})
 
         # check if password is 5 characters or more
         if len(password) < 5:
@@ -72,19 +73,19 @@ def register():
             return redirect(url_for('register'))
 
         # check if username exists - if not, the redirect to create_profile page
-        if username_exists is None:
+        if email_exists is None:
             users.insert_one(
-                { 'username': new_user, 'password': generate_password_hash(password) })
+                { 'username': new_user, 'email': new_email, 'password': generate_password_hash(password) })
             session['username'] = new_user
             return redirect(url_for('create_profile', username=session["username"]))
         
         # if username exists flash try again message
         else:
-            flash('Username already exists. Please try another username.', 'warning')
+            flash('Email already registered. Please try another email or sign-in.', 'warning')
             return redirect(url_for('register'))
 
     return render_template('register.html')
-
+    
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
