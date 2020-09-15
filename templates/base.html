@@ -36,7 +36,7 @@
                     <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Coming Soon">Student Dashboard</a>
                   </li>
                   <li class="nav-item pr-md-3">
-                      <a class="nav-link" href="tutors/{{session.username}}">My Profile</a>
+                      <a class="nav-link" href="{{ url_for('my_profile', creator_id=session['username'])}}">My Profile</a>
                   </li>
                   <li class="nav-item">
                       <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('logout')}}">Logout<i class="pl-2 fas fa-sign-out-alt"></i> </a>

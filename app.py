@@ -39,6 +39,13 @@ def tutor_page(username_id):
     tutor = profile.find_one({'_id': ObjectId(username_id)})
     return render_template('profile.html', tutor=tutor)
 
+# My profile page
+@app.route('/tutors/my_profile/<creator_id>/')
+def my_profile(creator_id):
+    profile = mongo.db.profile
+    tutor = profile.find_one({'created_by': creator_id})
+    return render_template('profile.html', tutor=tutor)
+
 # Subject category profiles
 @app.route('/<subject>')
 def tutors_subject(subject):
