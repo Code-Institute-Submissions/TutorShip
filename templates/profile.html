@@ -7,17 +7,14 @@
     <div class="row pt-5">
       <div class="col-sm-6 mt-5">
         <img id="profile-img" class="card-img-top text-center radius" src="{{ tutor.profile_image }}" alt="">
-        <!-- Check if tutor is in session -->
-        {% if 'username' in session %}
-          <!-- If tutor in session matches current tutor profile then display edit and delete profile buttons -->
-          {% if tutor.created_by == session['username'] %}
+        <!-- If tutor in session matches current tutor profile then display edit and delete profile buttons -->
+        {% if ('username' in session) and (tutor.created_by == session['username']) %}
         <div class="row mt-5">
           <div class="pl-3">
-            <button class="edit-delete-btn h5 font-weight-semi rounded-pill px-4 mr-4"><i class="fas fa-user-edit pr-2"></i>Edit</button>
-            <button class="edit-delete-btn h5 font-weight-semi rounded-pill px-4"><i class="far fa-trash-alt pr-2"></i>Delete</button>
+            <a class="edit-delete-btn h5 font-weight-semi rounded-pill px-4 mr-4 pt-2"><i class="fas fa-user-edit pr-2"></i>Edit</a>
+            <a href="{{url_for('delete_profile', username_id=tutor._id) }}" class="edit-delete-btn h5 font-weight-semi rounded-pill px-4 pt-2"><i class="far fa-trash-alt pr-2"></i>Delete</a>
           </div>
         </div>
-          {% endif %}
         {% endif %}
       </div>
 
