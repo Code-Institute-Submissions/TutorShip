@@ -18,7 +18,7 @@
         {% if ('username' in session) and (tutor.created_by == session['username']) %}
         <div class="row mt-5">
           <div class="pl-3">
-            <a class="edit-delete-btn h5 font-weight-semi rounded-pill px-4 mr-4 pt-2"><i class="fas fa-user-edit pr-2"></i>Edit</a>
+            <a href="{{url_for('edit_profile', username_id=tutor._id) }}" class="edit-delete-btn h5 font-weight-semi rounded-pill px-4 mr-4 pt-2"><i class="fas fa-user-edit pr-2"></i>Edit</a>
             <button data-toggle="modal" data-target="#deleteProfile" class="edit-delete-btn h5 font-weight-semi rounded-pill px-4"><i class="far fa-trash-alt pr-2"></i>Delete</button>
           </div>
         </div>
