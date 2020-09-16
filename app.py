@@ -153,6 +153,12 @@ def insert_profile():
 
         return redirect(url_for('my_profile', creator_id=session['username']))
 
+# Edit profile
+@app.route('/edit_profile/<username_id>')
+def edit_profile(username_id):
+    profile = mongo.db.profile.find_one({'_id': ObjectId(username_id)})
+    return render_template('edit_profile.html', profile=profile)
+
 # Delete profile
 @app.route('/delete_profile/<username_id>')
 def delete_profile(username_id):
