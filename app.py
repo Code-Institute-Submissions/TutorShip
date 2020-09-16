@@ -159,6 +159,27 @@ def edit_profile(username_id):
     profile = mongo.db.profile.find_one({'_id': ObjectId(username_id)})
     return render_template('edit_profile.html', profile=profile)
 
+# Update profile
+@app.route('/update_profile/<username_id>', methods=['GET', 'POST'])
+def update_profile(username_id):
+    profile = mongo.db.profile
+    
+    profile.update({'_id': ObjectId(username_id)},{
+            'first_name': request.form.get('first_name').lower(),
+            'last_name': request.form.get('last_name').lower(),
+            'email': request.form.get('email'),
+            'about': request.form.get('about'),
+            'subject': request.form.get('subject'),
+            'qualification': request.form.get('qualification').lower(),
+            'years_tutoring': request.form.get('years_tutoring'),
+            'profile_image': request.form.get('profile_image'),
+            'created_by': session['username']
+        })
+
+    flash('Success! Your profile has been updated!', 'success')
+
+    return redirect(url_for('my_profile', creator_id=session['username']))    
+
 # Delete profile
 @app.route('/delete_profile/<username_id>')
 def delete_profile(username_id):
