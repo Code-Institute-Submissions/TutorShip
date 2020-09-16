@@ -79,14 +79,14 @@ def register():
             flash('Password must include at least one number.', 'warning')
             return redirect(url_for('register'))
 
-        # check if username exists - if not, the redirect to create_profile page
+        # check if email exists - if not, the redirect to create_profile page
         if email_exists is None:
             users.insert_one(
                 { 'username': new_user, 'email': new_email, 'password': generate_password_hash(password) })
             session['username'] = new_user
             return redirect(url_for('create_profile', username=session["username"]))
         
-        # if username exists flash try again message
+        # if email exists flash try again message
         else:
             flash('Email already registered. Please try another email or sign-in.', 'warning')
             return redirect(url_for('register'))
@@ -138,12 +138,12 @@ def insert_profile():
 
     if request.method == 'POST':
         profile.insert_one({
-            'first_name': request.form.get('first_name'),
-            'last_name': request.form.get('last_name'),
+            'first_name': request.form.get('first_name').lower(),
+            'last_name': request.form.get('last_name').lower(),
             'email': request.form.get('email'),
             'about': request.form.get('about'),
             'subject': request.form.get('subject'),
-            'qualification': request.form.get('qualification'),
+            'qualification': request.form.get('qualification').lower(),
             'years_tutoring': request.form.get('years_tutoring'),
             'profile_image': request.form.get('profile_image'),
             'created_by': session['username']
