@@ -130,6 +130,20 @@ p .text-yellow:hover {
     color: #ffffff;
 }
 
+.dropdown-menu:focus {
+    background-color: #FF0000;
+} 
+
+.dropdown-menu a:link,
+.dropdown-menu a:hover {
+    background-color: #3D1EAE;    
+}
+
+#dropdownMenuLink:active,
+#dropdownMenuLink:focus {
+    background-color: #9ACF61;
+}
+
 /*--------------------------------------------------------------------- Special paddings/margins/text */
 
 .font-weight-semi {
@@ -566,6 +580,14 @@ button:focus {
     transition: all 0.3s;
 }
 
+.custom-select:hover {
+    background-color: #9ACF61;
+}
+
+.custom-select:focus {
+    background-color: #9ACF61;
+}
+
 .search-form {
     position: relative;
     top: 50%;
@@ -613,7 +635,7 @@ button:focus {
 }
 
 .search-form:hover{
-    width: 250px;
+    width: 200px;
     cursor: pointer;
     border: 4px solid #FCBC14;
 }
@@ -722,6 +744,16 @@ button:focus {
     .bg-divide h3 {
         font-size: 1.2em;
         text-align: center;
+    }
+
+    .our-tutors-title {
+        font-size: xx-large;
+    }
+
+    .search-form:hover{
+        width: 220px;
+        cursor: pointer;
+        border: 4px solid #FCBC14;
     }
 
 }
