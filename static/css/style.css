@@ -414,6 +414,50 @@ button:focus {
     transition: all 0.3s;
 }
 
+.green-btn {
+    font-weight: 600;
+    height: 40px;
+    background-color: #9ACF61;
+    border: 2px solid #9ACF61;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.green-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid #9ACF61;
+    color: #9ACF61;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.red-btn {
+    font-weight: 600;
+    height: 40px;
+    background-color: #f00235;
+    border: 2px solid #f00235;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.red-btn:hover {
+    font-weight: 600;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid #f00235;
+    color: #f00235;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
 /*--------------------------------------------------------------------- Cards */
 
 .card-color {
@@ -656,7 +700,7 @@ button:focus {
         width: 100%;
         height: 400px;
         object-fit: cover;
-        object-position: top;
+        object-position: center;
     }
 
     .subscribe-email {
