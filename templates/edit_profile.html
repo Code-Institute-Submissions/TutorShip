@@ -15,7 +15,7 @@
     <form action="{{url_for('update_profile', username_id=profile._id)}}" method="POST" class="form-signin mt-5">
       <div class="text-center mb-4 mt-5">
         <h1 class="mb-3 font-weight-semi text-purple">Editing {{ session['username'].capitalize() }}'s Profile</h1>
-        <h2 class="mb-3 text-purple">Let's make some changes.</h2>
+        <h2 class="mb-3 text-purple">Let's make some changes</h2>
       </div>
 
       <label for="first_name">First Name</label>
@@ -86,8 +86,8 @@
       </div>
 
       <div class="row ml-1">
-        <button class="col-4 submit-btn h5 font-weight-semi rounded-pill mr-4 justify-content-center text-center" type="submit">Launch</button>
-        <p class="text-muted d-flex align-items-center pt-1 text-center">We're glad to have you on board!</p>
+        <a href="{{ url_for('my_profile', creator_id=session['username'])}}" class="col-4 mr-4 red-btn h5 font-weight-semi rounded-pill justify-content-center text-center pt-2">Cancel<i class="fas fa-times pl-3"></i></a>
+        <button class="col-4 green-btn h5 font-weight-semi rounded-pill justify-content-center text-center" type="submit">Update<i class="fas fa-check pl-3"></i></button>
       </div>
     </form>
   </main>
