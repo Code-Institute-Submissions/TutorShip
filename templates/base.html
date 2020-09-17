@@ -85,7 +85,7 @@
             {% if 'username' not in session %}
             <li><a href="{{url_for('register')}}">Tutor Register</a></li>
             {% else %}
-            <li><a href="{{url_for('tutors')}}">Your Profile</a></li>
+            <li><a href="{{ url_for('my_profile', creator_id=session['username'])}}">Your Profile</a></li>
             {% endif %}
             <li><a href="{{url_for('pricing')}}">Pricing</a></li>
             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Coming Soon">Features</a></li>
