@@ -20,12 +20,12 @@
 
       <label for="first_name">First Name</label>
       <div class="form-label-group">
-        <input type="text" id="first_name" name="first_name" value="{{ profile.first_name }}" class="form-control p-4 rounded-pill mb-4" placeholder="Your First Name" required="" autofocus="" autocomplete="off">
+        <input type="text" id="first_name" name="first_name" value="{{ profile.first_name|title }}" class="form-control p-4 rounded-pill mb-4" placeholder="Your First Name" required="" autofocus="" autocomplete="off">
       </div>
       
       <label for="last_name">Last Name</label>
       <div class="form-label-group">
-        <input type="text" id="last_name" name="last_name" value="{{ profile.last_name }}" class="form-control p-4 rounded-pill mb-4" placeholder="Your surname" required="" autocomplete="off">
+        <input type="text" id="last_name" name="last_name" value="{{ profile.last_name|title }}" class="form-control p-4 rounded-pill mb-4" placeholder="Your surname" required="" autocomplete="off">
       </div>
 
       <label for="email">Email address</label>
@@ -66,7 +66,7 @@
       
       <label for="qualification">Qualification</label>
       <div class="form-label-group">
-        <input type="text" id="qualification" name="qualification" value="{{ profile.qualification }}" class="form-control p-4 rounded-pill mb-4" placeholder="Your qualification title" required="" autocomplete="off">
+        <input type="text" id="qualification" name="qualification" value="{{ profile.qualification|title }}" class="form-control p-4 rounded-pill mb-4" placeholder="Your qualification title" required="" autocomplete="off">
       </div>
       
       <label for="years_tutoring">Years Tutoring</label>
