@@ -30,7 +30,6 @@ a:hover {
     transition: all 0.2s;
 }
 
-
 /*--------------------------------------------------------------------- Colours */
 
 .bg-purple {
@@ -130,11 +129,19 @@ p .text-yellow:hover {
     color: #ffffff;
 }
 
+.dropdown{
+    margin-top:900px;
+  }
+
+/* Force BS dropdown menu below dropdown button src: https://codepen.io/Washable/pen/xPdqVp */
+.dropdown-menu-push {
+    transform: translate3d(5px, 35px, 0px)!important;
+}
+
 .dropdown-menu:focus {
     background-color: #FF0000;
 } 
 
-.dropdown-menu a:link,
 .dropdown-menu a:hover {
     background-color: #3D1EAE;    
 }
@@ -142,6 +149,14 @@ p .text-yellow:hover {
 #dropdownMenuLink:active,
 #dropdownMenuLink:focus {
     background-color: #9ACF61;
+}
+
+
+/* Scrollable dropdown src: https://stackoverflow.com/questions/19227496/scrollable-menu-with-bootstrap-menu-expanding-its-container-when-it-should-not */
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
 }
 
 /*--------------------------------------------------------------------- Special paddings/margins/text */
