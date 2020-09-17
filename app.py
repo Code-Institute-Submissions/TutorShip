@@ -28,9 +28,13 @@ def home():
 @app.route('/tutors')
 def tutors():
     return render_template('tutors.html',
-    subjects_desktop=mongo.db.subjects.find(),
-    subjects_mobile=mongo.db.subjects.find(),
-    tutor_profile=mongo.db.profile.find())
+    tutor=mongo.db.profile.find())
+
+# Individual subject tutor list
+@app.route('/tutors/<subject>')
+def tutor_by_subject(subject):
+    tutor = mongo.db.profile.find({'subject': subject})
+    return render_template('tutors.html', tutor=tutor, subject=subject)
 
 # Tutor profile page
 @app.route('/tutors/<username_id>/')
@@ -45,13 +49,6 @@ def my_profile(creator_id):
     profile = mongo.db.profile
     tutor = profile.find_one({'created_by': creator_id})
     return render_template('profile.html', tutor=tutor)
-
-# Subject category profiles
-@app.route('/<subject>')
-def tutors_subject(subject):
-    subjects = mongo.db.subjects
-    subject_list = subjects.find({"subject_name": subject})
-    return render_template('tutors.html', subject_list=subject_list, subjects_desktop=mongo.db.subjects.find())
 
 # Pricing
 @app.route('/pricing')
