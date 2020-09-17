@@ -12,41 +12,39 @@
 <main class="container-fluid p-0">
     
     <!-- Hero/Header section -->
-    <header class="container-flex bg-purple hero-background text-white">
+    <header class="container-flex bg-purple hero-background text-white  z-index">
       <div class="jumbotron container mt-5 bg-transparent pb-0">
         <div class="row">
           <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="col-md-6 align-self-center">
             <h1 class="hero-text font-weight-bold pt-4 pt-md-0">Your journey to success.</h1>
             <p class="mb-5 d-none d-sm-flex">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
             <h2 class="font-weight-semi text-yellow my-3">Find a tutor in Dublin:</h2>
-            <form class="row">
-              <div class="input-group d-flex col-12 col-sm-11 mb-4">
-                <select class="pl-4 custom-select" id="inputGroupSelect01">
-                  <option selected disabled>Choose Your Subject</option>
-                  <option value="1">Accounting</option>
-                  <option value="2">Applied Maths</option>
-                  <option value="3">Art</option>
-                  <option value="4">Biology</option>
-                  <option value="5">Business</option>
-                  <option value="6">Chemistry</option>
-                  <option value="7">Construction</option>
-                  <option value="8">Economics</option>
-                  <option value="9">English</option>
-                  <option value="10">French</option>
-                  <option value="11">Geography</option>
-                  <option value="12">German</option>
-                  <option value="13">Home Economics</option>
-                  <option value="14">Maths</option>
-                  <option value="15">Music</option>
-                  <option value="16">Physics</option>
-                  <option value="17">Spanish</option>
-                  <option value="18">Technology</option>
-                </select>
-                <span class="input-group-btn">
-                  <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
-                </span>
+            <div class="dropdown  show d-flex col-12 my-3 pl-0">
+              <a class="h2 btn btn-secondary custom-select pt-1 pt-md-3 " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                CHOOSE A SUBJECT
+              </a>
+              <div class="dropdown-menu scrollable-menu text-center col-8 " aria-labelledby="dropdownMenuLink">
+                <a href="{{url_for('tutors')}}" class="h5 list-group-item">All Tutors</a>
+                <a href="{{url_for('tutor_by_subject', subject='Accounting')}}" class="h5 list-group-item">Accounting</a>
+                <a href="{{url_for('tutor_by_subject', subject='Applied Maths')}}" class="h5 list-group-item">Applied Maths</a>
+                <a href="{{url_for('tutor_by_subject', subject='Art')}}" class="h5 list-group-item">Art</a>
+                <a href="{{url_for('tutor_by_subject', subject='Biology')}}" class="h5 list-group-item">Biology</a>
+                <a href="{{url_for('tutor_by_subject', subject='Business')}}" class="h5 list-group-item">Business</a>
+                <a href="{{url_for('tutor_by_subject', subject='Chemistry')}}" class="h5 list-group-item">Chemistry</a>
+                <a href="{{url_for('tutor_by_subject', subject='Construction')}}" class="h5 list-group-item">Construction</a>
+                <a href="{{url_for('tutor_by_subject', subject='Economics')}}" class="h5 list-group-item">Economics</a>
+                <a href="{{url_for('tutor_by_subject', subject='English')}}" class="h5 list-group-item">English</a>
+                <a href="{{url_for('tutor_by_subject', subject='French')}}" class="h5 list-group-item">French</a>
+                <a href="{{url_for('tutor_by_subject', subject='Geography')}}" class="h5 list-group-item">Geography</a>
+                <a href="{{url_for('tutor_by_subject', subject='German')}}" class="h5 list-group-item">German</a>
+                <a href="{{url_for('tutor_by_subject', subject='Home Economics')}}" class="h5 list-group-item">Home Economics</a>
+                <a href="{{url_for('tutor_by_subject', subject='Maths')}}" class="h5 list-group-item">Maths</a>
+                <a href="{{url_for('tutor_by_subject', subject='Music')}}" class="h5 list-group-item">Music</a>
+                <a href="{{url_for('tutor_by_subject', subject='Physics')}}" class="h5 list-group-item">Physics</a>
+                <a href="{{url_for('tutor_by_subject', subject='Spanish')}}" class="h5 list-group-item">Spanish</a>
+                <a href="{{url_for('tutor_by_subject', subject='Technology')}}" class="h5 list-group-item">Technology</a>
               </div>
-            </form>
+            </div>
             {% if 'username' not in session %}
             <p class="d-flex col-12 p-0 text-white">Register as a tutor?<a href="{{url_for('register')}}" class="d-flex pl-2 text-yellow">Click here</a></p>
             {% endif %}
