@@ -14,26 +14,26 @@
       <div id="sidebar" class="col-md-3 mt-5 d-none d-md-block">
         <h2 class="h1 my-4 font-weight-semi">Subjects</h2>
         <div class="list-group">
-            <a href="{{url_for('tutors')}}" class="h5 list-group-item"><i class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors</a>
+            <a href="{{url_for('tutors')}}" class="h5 list-group-item"><i class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors{% if not subject %}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
             <div class="list-group">
-              <a href="{{url_for('tutor_by_subject', subject='Accounting')}}" class="h5 list-group-item">Accounting</a>
-              <a href="{{url_for('tutor_by_subject', subject='Applied Maths')}}" class="h5 list-group-item">Applied Maths</a>
-              <a href="{{url_for('tutor_by_subject', subject='Art')}}" class="h5 list-group-item">Art</a>
-              <a href="{{url_for('tutor_by_subject', subject='Biology')}}" class="h5 list-group-item">Biology</a>
-              <a href="{{url_for('tutor_by_subject', subject='Business')}}" class="h5 list-group-item">Business</a>
-              <a href="{{url_for('tutor_by_subject', subject='Chemistry')}}" class="h5 list-group-item">Chemistry</a>
-              <a href="{{url_for('tutor_by_subject', subject='Construction')}}" class="h5 list-group-item">Construction</a>
-              <a href="{{url_for('tutor_by_subject', subject='Economics')}}" class="h5 list-group-item">Economics</a>
-              <a href="{{url_for('tutor_by_subject', subject='English')}}" class="h5 list-group-item">English</a>
-              <a href="{{url_for('tutor_by_subject', subject='French')}}" class="h5 list-group-item">French</a>
-              <a href="{{url_for('tutor_by_subject', subject='Geography')}}" class="h5 list-group-item">Geography</a>
-              <a href="{{url_for('tutor_by_subject', subject='German')}}" class="h5 list-group-item">German</a>
-              <a href="{{url_for('tutor_by_subject', subject='Home Economics')}}" class="h5 list-group-item">Home Economics</a>
-              <a href="{{url_for('tutor_by_subject', subject='Maths')}}" class="h5 list-group-item">Maths</a>
-              <a href="{{url_for('tutor_by_subject', subject='Music')}}" class="h5 list-group-item">Music</a>
-              <a href="{{url_for('tutor_by_subject', subject='Physics')}}" class="h5 list-group-item">Physics</a>
-              <a href="{{url_for('tutor_by_subject', subject='Spanish')}}" class="h5 list-group-item">Spanish</a>
-              <a href="{{url_for('tutor_by_subject', subject='Technology')}}" class="h5 list-group-item">Technology</a>
+              <a href="{{url_for('tutor_by_subject', subject='Accounting')}}" class="h5 list-group-item">Accounting{% if subject=='Accounting'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Applied Maths')}}" class="h5 list-group-item">Applied Maths{% if subject=='Applied Maths'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Art')}}" class="h5 list-group-item">Art{% if subject=='Art'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Biology')}}" class="h5 list-group-item">Biology{% if subject=='Biology'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Business')}}" class="h5 list-group-item">Business{% if subject=='Business'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Chemistry')}}" class="h5 list-group-item">Chemistry{% if subject=='Chemistry'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Construction')}}" class="h5 list-group-item">Construction{% if subject=='Construction'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Economics')}}" class="h5 list-group-item">Economics{% if subject=='Economics'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='English')}}" class="h5 list-group-item">English{% if subject=='English'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='French')}}" class="h5 list-group-item">French{% if subject=='French'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Geography')}}" class="h5 list-group-item">Geography{% if subject=='Geography'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='German')}}" class="h5 list-group-item">German{% if subject=='German'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Home Economics')}}" class="h5 list-group-item">Home Economics{% if subject=='Home Economics'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Maths')}}" class="h5 list-group-item">Maths{% if subject=='Maths'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Music')}}" class="h5 list-group-item">Music{% if subject=='Music'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Physics')}}" class="h5 list-group-item">Physics{% if subject=='Physics'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Spanish')}}" class="h5 list-group-item">Spanish{% if subject=='Spanish'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+              <a href="{{url_for('tutor_by_subject', subject='Technology')}}" class="h5 list-group-item">Technology{% if subject=='Technology'%}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
             </div>
         </div>
       </div>
