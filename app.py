@@ -28,7 +28,7 @@ def home():
 @app.route('/tutors')
 def tutors():
     return render_template('tutors.html',
-    tutor=mongo.db.profile.find())
+    tutor=mongo.db.profile.find(), subjects=mongo.db.subjects.find(), subjects_in_sidebar=mongo.db.subjects.find())
 
 # Individual subject tutor list
 @app.route('/tutors/<subject>')
@@ -42,6 +42,16 @@ def tutor_page(username_id):
     profile = mongo.db.profile
     tutor = profile.find_one({'_id': ObjectId(username_id)})
     return render_template('profile.html', tutor=tutor)
+
+# Individual subject tutor list
+@app.route('/tutors/subject', methods=["GET"])
+def subject_dropdown():
+    subject_selected = request.args.get('subject_selected')
+    subject = mongo.db.subjects.find_one({'subject_name': subject_selected})
+    tutor = mongo.db.profile.find({'subject': subject_selected})
+    subjects = mongo.db.subjects.find()
+    subjects_in_sidebar = mongo.db.subjects.find()
+    return render_template('tutors.html', tutor=tutor, subjects=subjects, subject=subject, subjects_in_sidebar=subjects_in_sidebar, subject_selected=subject_selected)
 
 # My profile page
 @app.route('/tutors/my_profile/<creator_id>/')
