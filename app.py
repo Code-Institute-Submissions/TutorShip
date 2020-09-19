@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, request, session, flash, url_for
+from flask import Flask, render_template, redirect, \
+    request, session, flash, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, \
@@ -7,7 +8,7 @@ from werkzeug.security import generate_password_hash, \
 
 from os import path
 if path.exists("env.py"):
-  import env
+    import env
 
 app = Flask(__name__)
 
@@ -22,13 +23,18 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('index.html', subjects_in_sidebar=mongo.db.subjects.find())
+    return render_template(
+        'index.html', subjects_in_sidebar=mongo.db.subjects.find())
+
 
 # Tutors
 @app.route('/tutors')
 def tutors():
-    return render_template('tutors.html',
-    tutor=mongo.db.profile.find(), subjects=mongo.db.subjects.find(), subjects_in_sidebar=mongo.db.subjects.find())
+    return render_template(
+        'tutors.html', tutor=mongo.db.profile.find(),
+        subjects=mongo.db.subjects.find(),
+        subjects_in_sidebar=mongo.db.subjects.find())
+
 
 # Individual subject tutor list
 @app.route('/tutors/<subject>')
@@ -36,12 +42,14 @@ def tutor_by_subject(subject):
     tutor = mongo.db.profile.find({'subject': subject})
     return render_template('tutors.html', tutor=tutor, subject=subject)
 
+
 # Tutor profile page
 @app.route('/tutors/<username_id>/')
 def tutor_page(username_id):
     profile = mongo.db.profile
     tutor = profile.find_one({'_id': ObjectId(username_id)})
     return render_template('profile.html', tutor=tutor)
+
 
 # Individual subject tutor list
 @app.route('/tutors/subject', methods=["GET"])
@@ -51,7 +59,11 @@ def subject_dropdown():
     tutor = mongo.db.profile.find({'subject': subject_selected})
     subjects = mongo.db.subjects.find()
     subjects_in_sidebar = mongo.db.subjects.find()
-    return render_template('tutors.html', tutor=tutor, subjects=subjects, subject=subject, subjects_in_sidebar=subjects_in_sidebar, subject_selected=subject_selected)
+    return render_template(
+        'tutors.html', tutor=tutor, subjects=subjects,
+        subject=subject, subjects_in_sidebar=subjects_in_sidebar,
+        subject_selected=subject_selected)
+
 
 # My profile page
 @app.route('/tutors/my_profile/<creator_id>/')
@@ -60,10 +72,12 @@ def my_profile(creator_id):
     tutor = profile.find_one({'created_by': creator_id})
     return render_template('profile.html', tutor=tutor)
 
+
 # Pricing
 @app.route('/pricing')
 def pricing():
     return render_template('pricing.html')
+
 
 # Register
 @app.route('/register', methods=['GET', 'POST'])
@@ -78,9 +92,11 @@ def register():
 
         # check if password is 5 characters or more
         if len(password) < 5:
-            flash('Please use 5 or more characters for your password.', 'warning')
+            flash(
+                'Please use 5 or more characters for your password.',
+                'warning')
             return redirect(url_for('register'))
-        
+
         # check if password includes 1 or more numbers
         if not any(char.isdigit() for char in password):
             flash('Password must include at least one number.', 'warning')
@@ -89,16 +105,21 @@ def register():
         # check if email exists - if not, the redirect to create_profile page
         if email_exists is None:
             users.insert_one(
-                { 'username': new_user, 'email': new_email, 'password': generate_password_hash(password) })
+                {'username': new_user,
+                    'email': new_email, 'password':
+                    generate_password_hash(password)})
             session['username'] = new_user
-            return redirect(url_for('create_profile', username=session["username"]))
-        
+            return redirect(url_for(
+                    'create_profile', username=session["username"]))
+
         # if email exists flash try again message
         else:
-            flash('Email already registered. Please try another email or sign-in.', 'warning')
+            flash('''Email already registered.
+            Please try another email or sign-in.''', 'warning')
             return redirect(url_for('register'))
 
     return render_template('register.html')
+
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
@@ -122,14 +143,17 @@ def login():
 
             # flash error message if password is incorrect
             else:
-                flash('Oops, there was a problem logging in. Please try again.')
+                flash('''Oops, there was a problem logging in.
+                Please try again.''')
                 return redirect(url_for('login'))
         else:
             # flash error if username is not on file - prompt to register
-            flash(f"We don't seem to have a {username} on file. Want to regitser?")
+            flash(f'''We don't seem to have a{username}
+            on file. Want to regitser?''')
             return redirect(url_for('login'))
 
     return render_template('login.html')
+
 
 # Create profile
 @app.route('/create_profile', methods=['GET', 'POST'])
@@ -137,6 +161,7 @@ def create_profile():
     if 'username' in session:
         flash('You have sucessfully registered', 'success')
         return render_template('create_profile.html')
+
 
 # Insert profile
 @app.route('/insert_profile', methods=['POST'])
@@ -160,18 +185,20 @@ def insert_profile():
 
         return redirect(url_for('my_profile', creator_id=session['username']))
 
+
 # Edit profile
 @app.route('/edit_profile/<username_id>')
 def edit_profile(username_id):
     profile = mongo.db.profile.find_one({'_id': ObjectId(username_id)})
     return render_template('edit_profile.html', profile=profile)
 
+
 # Update profile
 @app.route('/update_profile/<username_id>', methods=['GET', 'POST'])
 def update_profile(username_id):
     profile = mongo.db.profile
-    
-    profile.update({'_id': ObjectId(username_id)},{
+
+    profile.update({'_id': ObjectId(username_id)}, {
             'first_name': request.form.get('first_name').lower(),
             'last_name': request.form.get('last_name').lower(),
             'email': request.form.get('email'),
@@ -185,7 +212,8 @@ def update_profile(username_id):
 
     flash('Success! Your profile has been updated!', 'success')
 
-    return redirect(url_for('my_profile', creator_id=session['username']))    
+    return redirect(url_for('my_profile', creator_id=session['username']))
+
 
 # Delete profile
 @app.route('/delete_profile/<username_id>')
@@ -196,6 +224,7 @@ def delete_profile(username_id):
 
     return redirect(url_for('tutors'))
 
+
 # Email subscription
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
@@ -203,6 +232,7 @@ def subscribe():
     subscriber.insert_one(request.form.to_dict())
     flash('Thanks for subscribing!', 'success')
     return redirect(url_for('home'))
+
 
 # Logout
 @app.route('/logout')
@@ -213,5 +243,5 @@ def logout():
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-    port=(os.environ.get('PORT')),
-    debug=True)
+            port=(os.environ.get('PORT')),
+            debug=True)
