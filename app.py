@@ -65,6 +65,26 @@ def subject_dropdown():
         subject_selected=subject_selected)
 
 
+# Search function
+@app.route('/tutors/search', methods=['POST'])
+def search():
+    return redirect(url_for('search_tutors', search_for=request.form.get('search_input')))
+
+# Search form results page
+@app.route('/tutors/search/<search_for>')
+def search_tutors(search_for):
+    profile = mongo.db.profile
+
+    # Create index for first and last name
+    profile.create_index([
+        ('first_name', 'text'),
+        ('last_name', 'text')
+    ])
+
+    # Assign search term to variable used in loop to display tutor profiles
+    search_results = profile.find({"$text": {"$search": search_for}})
+    return render_template('tutors.html', search_for=search_for, tutor=search_results)
+
 # My profile page
 @app.route('/tutors/my_profile/<creator_id>/')
 def my_profile(creator_id):

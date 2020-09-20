@@ -45,9 +45,10 @@
             {% endif %}
           </div>
           <div class="col-12 col-sm-4 p-0">
-            <form action="" class="search-form my-1 my-sm-4 font-weight-semi justify-content-end text-right">
-              <input class="search-input" type="search" placeholder="Search tutors" required="">
-              <i class="fa fa-search"></i>
+            <!-- Search input form -->
+            <form action="{{ url_for('search')}}" class="search-form my-1 my-sm-4 font-weight-semi justify-content-end text-right" method="POST">
+              <input class="search-input" type="search" placeholder="Search tutors" name="search_input" required="">
+              <button class="btn"><i class="fa fa-search"></i></button>
             </form>
           </div>
           
@@ -90,7 +91,6 @@
             </div>
             {% endfor %}
           {% endif %}
-            
         </div>
     </div>
 </main>
