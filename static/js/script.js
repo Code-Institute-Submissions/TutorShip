@@ -20,6 +20,7 @@ $(document).ready(function() {
         $("#video").attr('src',$videoSrc); 
     })
 
+    // Enable bootstrap tooltip
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
