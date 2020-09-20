@@ -65,7 +65,7 @@
                     <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt=""></a>
                     <div class="card-body">
                         <div class="row card-subject">
-                            <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{profile.subject}}</h6>
+                            <h6 class="col-12"><a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{profile.subject}}</h6></a>
                         </div>
                         <h4 class="card-title font-weight-semi pt-1">
                             <a href="{{url_for('tutor_page', username_id=profile._id)}}">{{profile.first_name|title}} {{profile.last_name|title}}</a>
