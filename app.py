@@ -66,6 +66,7 @@ def subject_dropdown():
 
 
 # Search function
+# https://gist.github.com/cpatrick/5719077
 @app.route('/tutors/search', methods=['POST'])
 def search():
     return redirect(url_for('search_tutors', search_for=request.form.get('search_input')))
@@ -84,7 +85,7 @@ def search_tutors(search_for):
     # Assign search term to variable used in loop to display tutor profiles
     search_results = profile.find({"$text": {"$search": search_for}})
     search_number = profile.count_documents({"$text": {"$search": search_for}})
-    return render_template('tutors.html', search_for=search_for, tutor=search_results, search_number=search_number)
+    return render_template('tutors.html', search_for=search_for, tutor=search_results, search_number=search_number, subjects_in_sidebar=mongo.db.subjects.find())
 
 # My profile page
 @app.route('/tutors/my_profile/<creator_id>/')
