@@ -12,7 +12,7 @@
 {% endfor %} {% endif %} {% endwith %}
 
   <main id="register-form" class="container-fluid d-flex align-items-center pb-5 mt-5">
-    <form action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
+    <form id="form" action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
       <div class="text-center mb-4 mt-5">
         <h1 class="mb-3 font-weight-semi text-purple">Welcome {{ session['username'].capitalize() }},</h1>
         <h2 class="mb-3 text-purple"> Let's create your tutor profile.</h2>
@@ -72,7 +72,7 @@
       <label for="years_tutoring">Years Tutoring</label>
       <div class="form-label-group">
         <select class="dropdown-select col-12 form-control rounded-pill mb-4" id="years_tutoring" name="years_tutoring" required="required">
-          <option value="1">Less than 1 year</option>
+          <option value="0">Less than 1 year</option>
           <option value="1">1 Years</option>
           <option value="2">2 Years</option>
           <option value="3">3 Years</option>
@@ -82,12 +82,12 @@
       
       <label for="profile_image">Profile Image</label>
       <div class="form-label-group">
-        <input type="text" id="profile_image" name="profile_image" class="form-control p-4 rounded-pill mb-4" placeholder="Unsplash link" required="" autocomplete="off">
+        <input type="text" pattern="^https?://(images\.unsplash\.com" id="profile_image" name="profile_image" class="form-control p-4 rounded-pill mb-4" placeholder="Unsplash link" required="" autocomplete="off">
       </div>
 
       <div class="row ml-1">
         <button class="col-4 submit-btn h5 font-weight-semi rounded-pill mr-4 justify-content-center text-center" type="submit">Launch</button>
-        <p class="text-muted d-flex align-items-center pt-1 text-center">We're glad to have you on board!</p>
+        <div id="error" class="text-muted d-flex align-items-center pt-1 text-center"></div>
       </div>
     </form>
   </main>
