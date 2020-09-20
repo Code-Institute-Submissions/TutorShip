@@ -40,6 +40,10 @@
           <div class="col-12 text-center text-sm-left col-sm-8 py-0">
             {% if subject: %}
             <h1 class="my-4 font-weight-semi our-tutors-title">{{ subject.subject_name|title }} Tutors</h1>
+            {% elif search_number: %}
+            <h3 class="my-4 font-weight-semi pt-2 our-tutors-title">{{ search_number }} {% if search_number == 1 %} result for: {% else %} results for: {% endif %} <span class="text-yellow">{{ search_for }}</span></h3>
+            {% elif search_number == 0 %}
+            <h3 class="my-4 font-weight-semi pt-2 our-tutors-title">No results for: <span class="text-yellow">{{ search_for }}</span></h3>
             {% else: %}
             <h1 class="my-4 font-weight-semi our-tutors-title">Our Tutors</h1>
             {% endif %}
