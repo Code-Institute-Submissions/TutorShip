@@ -12,7 +12,7 @@ if path.exists("env.py"):
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = 'tutorshipDB'
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
@@ -125,14 +125,16 @@ def register():
             return redirect(url_for('register'))
 
         # check if email exists - if not, the redirect to create_profile page
+        # inserts form data to users collection
+        # create key for has_profile and set to no - to be later updated when user creates profile
         if email_exists is None:
             users.insert_one(
                 {'username': new_user,
-                    'email': new_email, 'password':
+                    'email': new_email, 'has_profile': 'no','password':
                     generate_password_hash(password)})
             session['username'] = new_user
             return redirect(url_for(
-                    'create_profile', username=session["username"]))
+                    'create_profile', username=session['username']))
 
         # if email exists flash try again message
         else:
@@ -149,7 +151,7 @@ def login():
     # function to find a user from the database
     def registered_user(username):
         user = mongo.db.users
-        return user.find_one({"username": username})
+        return user.find_one({'username': username})
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -170,7 +172,7 @@ def login():
                 return redirect(url_for('login'))
         else:
             # flash error if username is not on file - prompt to register
-            flash(f'''We don't seem to have a{username}
+            flash(f'''We don't seem to have a {username}
             on file. Want to regitser?''')
             return redirect(url_for('login'))
 
@@ -189,6 +191,7 @@ def create_profile():
 @app.route('/insert_profile', methods=['POST'])
 def insert_profile():
     profile = mongo.db.profile
+    users = mongo.db.users
 
     if request.method == 'POST':
         profile.insert_one({
@@ -202,6 +205,11 @@ def insert_profile():
             'profile_image': request.form.get('profile_image'),
             'created_by': session['username']
         })
+
+        # updates has_profile value to yes when profile is created
+        users.update({'username': session['username']}, {'$set': {'has_profile': 'yes'}})
+    
+        session['has_profile'] = 'yes'
 
         flash("Your tutor profile is live!", 'success')
 
