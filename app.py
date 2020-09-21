@@ -249,7 +249,12 @@ def update_profile(username_id):
 @app.route('/delete_profile/<username_id>')
 def delete_profile(username_id):
     profile = mongo.db.profile
+    users = mongo.db.users
     profile.remove({'_id': ObjectId(username_id)})
+
+    # updates has_profile value to no when profile is deleted
+    users.update({'username': session['username']}, {'$set': {'has_profile': 'no'}})
+
     flash("Success, your profile has been deleted.")
 
     return redirect(url_for('tutors'))
