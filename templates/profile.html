@@ -52,7 +52,7 @@
         <div class="row">
           <div class="col-md-6">
             <h3 class="font-weight-semi my-4">Subject</h3>
-            <h6><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{ tutor.subject }}</h6>
+            <h6><a href="{{url_for('subject_dropdown', subject_selected=tutor.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{ tutor.subject }}</a></h6>
           </div>
 
           <div class="col-md-6">
