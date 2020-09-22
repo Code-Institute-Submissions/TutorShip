@@ -18,7 +18,6 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
 # Index
 @app.route('/')
 @app.route('/home')
@@ -110,37 +109,43 @@ def register():
         new_user = request.form.get('username')
         new_email = request.form.get('email')
         password = request.form.get('password')
+        username_exists = users.find_one({'username': request.form.get('username')})
         email_exists = users.find_one({'email': request.form.get('email')})
 
         # check if password is 5 characters or more
         if len(password) < 5:
             flash(
-                'Please use 5 or more characters for your password.',
-                'warning')
+                'Please use 5 or more characters for your password.')
             return redirect(url_for('register'))
 
         # check if password includes 1 or more numbers
         if not any(char.isdigit() for char in password):
-            flash('Password must include at least one number.', 'warning')
+            flash('Password must include at least one number.')
             return redirect(url_for('register'))
 
-        # check if email exists - if not, the redirect to create_profile page
-        # inserts form data to users collection
+        # check if username exists - if so, flash warning. If username doesn't exist then
+        # check if email exists - if so, flash warning. If email doesn't exist then
+        # inserts form data to users collection and redirect to create profile
         # create key for has_profile and set to no - to be later updated when user creates profile
-        if email_exists is None:
+        if username_exists:
+            flash('''Username already exists.''')
+            return redirect(url_for('register'))
+        
+        # if email exists flash try again message
+        if email_exists:
+            flash('''Email already exists.''')
+            return redirect(url_for('register'))
+
+        else:
             users.insert_one(
                 {'username': new_user,
                     'email': new_email, 'has_profile': 'no','password':
                     generate_password_hash(password)})
             session['username'] = new_user
+            session['email'] = new_email
             return redirect(url_for(
                     'create_profile', username=session['username']))
 
-        # if email exists flash try again message
-        else:
-            flash('''Email already registered.
-            Please try another email or sign-in.''', 'warning')
-            return redirect(url_for('register'))
 
     return render_template('register.html')
 
@@ -201,7 +206,7 @@ def insert_profile():
         profile.insert_one({
             'first_name': request.form.get('first_name').lower(),
             'last_name': request.form.get('last_name').lower(),
-            'email': request.form.get('email'),
+            'email': session['email'],
             'about': request.form.get('about'),
             'subject': request.form.get('subject'),
             'qualification': request.form.get('qualification').lower(),
