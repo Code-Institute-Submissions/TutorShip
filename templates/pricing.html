@@ -21,10 +21,10 @@
               <h2 class="display-4 font-weight-semi text-center"><span class="small">€</span>15<span class="small">/m</span></h2>
               <div class="card-body unstyled">
                 <ul class="pl-5 row card-subject list-unstyled">
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Tutor Sign-Up</h5></li>
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Tutor Rating</h5></li>
-                  <li class="col-12 mb-1"><h5 class="text-muted"><img src="../static/images/cross.svg" class="pr-2">Notification Centre</h5></li>
-                  <li class="col-12 mb-1"><h5 class="text-muted"><img src="../static/images/cross.svg" class="pr-2">Student Dashboard</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Tutor Sign-Up</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Tutor Rating</h5></li>
+                  <li class="col-12 mb-1"><h5 class="text-muted"><img src="{{ url_for('static', filename='images/cross.svg') }}" class="pr-2" alt="Circular Red Cross Icon">Notification Centre</h5></li>
+                  <li class="col-12 mb-1"><h5 class="text-muted"><img src="{{ url_for('static', filename='images/cross.svg') }}" class="pr-2" alt="Circular Red Cross Icon">Student Dashboard</h5></li>
                 </ul>
                 <p class="card-text text-center">This plan is ideal for getting your name out there.</p>
               </div>
@@ -43,10 +43,10 @@
               <p class="card-text text-center text-muted mb-0 pb-0">MOST POPULAR</p>
               <div class="card-body unstyled">
                 <ul class="pl-5 row card-subject list-unstyled">
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Tutor Sign-Up</h5></li>
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Tutor Rating</h5></li>
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Notification Centre</h5></li>
-                  <li class="col-12 mb-1"><h5 class="text-muted"><img src="../static/images/cross.svg" class="pr-2">Student Dashboard</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Tutor Sign-Up</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Tutor Rating</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Notification Centre</h5></li>
+                  <li class="col-12 mb-1"><h5 class="text-muted"><img src="{{ url_for('static', filename='images/cross.svg') }}" class="pr-2" alt="Circular Red Cross Icon">Student Dashboard</h5></li>
                 </ul>
                 <p class="card-text text-center">Set a profile up in a matter of minutes and get access to our notification centre.</p>
               </div>
@@ -64,10 +64,10 @@
               <h2 class="display-4 font-weight-semi text-center"><span class="small">€</span>40<span class="small">/m</span></h2>
               <div class="card-body unstyled">
                 <ul class="pl-5 row card-subject list-unstyled">
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Tutor Sign-Up</h5></li>
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Tutor Rating</h5></li>
-                  <li class="col-12 mb-1"><h5 ><img src="../static/images/tick.svg" class="pr-2">Notification Centre</h5></li>
-                  <li class="col-12 mb-1"><h5><img src="../static/images/tick.svg" class="pr-2">Student Dashboard</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Tutor Sign-Up</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Tutor Rating</h5></li>
+                  <li class="col-12 mb-1"><h5 ><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Notification Centre</h5></li>
+                  <li class="col-12 mb-1"><h5><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Circular Green Tick Icon">Student Dashboard</h5></li>
                 </ul>
                 <p class="card-text text-center">Become a TutorShip Pro with full student dashboard access to plan your tutorial sessions.</p>
               </div>
@@ -84,7 +84,7 @@
         <div class="row">
           <div class="col-12 text-center justify-content-center">
             <h4 class="mb-3 mt-5 font-weight-light text-purple">30-Day Money Back Guarantee For New Purchases​</h4>
-            <img class="col-4 mb-5" src="../static/images/credit-cards.png">
+            <img class="col-4 mb-5" src="{{ url_for('static', filename='images/credit-cards.png') }}" alt="Accepted credit card company logos">
           </div>
         </div>
 
