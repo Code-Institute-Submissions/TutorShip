@@ -28,9 +28,9 @@
         <input type="text" id="last_name" name="last_name" class="form-control p-4 rounded-pill mb-4" placeholder="Your surname" required="" autocomplete="off">
       </div>
 
-      <label for="email">Email address</label>
+      <label for="email">Email address (for student contact)</label>
       <div class="form-label-group">
-        <input type="email" id="email" name="email" class="form-control p-4 rounded-pill mb-4" placeholder="Your email address" required="" autocomplete="off">
+        <input type="email" id="email" name="email" class="form-control p-4 rounded-pill mb-4" placeholder="Preferred contact address" value="{{session['email']}}" required="" autocomplete="off">
       </div>
       
       <label for="about">About You</label>
@@ -72,11 +72,11 @@
       <label for="years_tutoring">Years Tutoring</label>
       <div class="form-label-group">
         <select class="dropdown-select col-12 form-control rounded-pill mb-4" id="years_tutoring" name="years_tutoring" required="required">
-          <option value="">Less than 1 year</option>
-          <option value="1">1 Years</option>
-          <option value="2">2 Years</option>
-          <option value="3">3 Years</option>
-          <option value="5">5+ Years</option>
+          <option value="Less than 1 year">Less than 1 year</option>
+          <option value="1+ Years">1+ Years</option>
+          <option value="2+ Years">2+ Years</option>
+          <option value="3+ Years">3+ Years</option>
+          <option value="5+ Years">5+ Years</option>
         </select>
       </div>
       
