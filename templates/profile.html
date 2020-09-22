@@ -13,7 +13,7 @@
 
     <div class="row pt-5">
       <div class="col-sm-6 mt-5">
-        <img id="profile-img" class="card-img-top text-center radius" src="{{ tutor.profile_image }}" alt="">
+        <img id="profile-img" class="card-img-top text-center radius" src="{{ tutor.profile_image }}" alt="{{ tutor.first_name|title }} {{ tutor.last_name|title }} Profile Image">
         <!-- If tutor in session matches current tutor profile then display edit and delete profile buttons -->
         {% if ('username' in session) and (tutor.created_by == session['username']) %}
         <div class="row mt-5">
@@ -52,13 +52,13 @@
         <div class="row">
           <div class="col-md-6">
             <h3 class="font-weight-semi my-4">Subject</h3>
-            <h6><a href="{{url_for('subject_dropdown', subject_selected=tutor.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{ tutor.subject }}</a></h6>
+            <h6><a href="{{url_for('subject_dropdown', subject_selected=tutor.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">{{ tutor.subject }}</a></h6>
           </div>
 
           <div class="col-md-6">
             <h3 class="font-weight-semi my-4">Qualifications</h3>
-            <h6><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2">{{ tutor.qualification|title }}</h6>
-            <h6><img src="{{ url_for('static', filename='images/star.svg') }}" class="pr-2">{{ tutor.years_tutoring }}+ Years Tutoring</h6>
+            <h6><img src="{{ url_for('static', filename='images/tick.svg') }}" class="pr-2" alt="Green tick icon">{{ tutor.qualification|title }}</h6>
+            <h6><img src="{{ url_for('static', filename='images/star.svg') }}" class="pr-2" alt="Yellow star icon">{{ tutor.years_tutoring }}+ Years Tutoring</h6>
           </div>
         </div>
         
