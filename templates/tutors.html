@@ -35,7 +35,7 @@
         </span>
       </form>
 
-    <div class="container px-5 px-sm-4 pl-lg-5 col-md-9 mt-2 mt-sm-5">
+      <div class="container px-5 px-sm-4 pl-lg-5 col-md-9 mt-2 mt-sm-5">
         <div class="row m-auto">
           <div class="col-12 text-center text-sm-left col-sm-8 py-0">
             {% if subject: %}
@@ -55,47 +55,48 @@
               <button class="btn"><i class="fa fa-search"></i></button>
             </form>
           </div>
-          
         </div>
+ 
         <div class="row">
           {% if subject or tutor %}
             {% for profile in tutor %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 radius translate-y">
-                    <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt="{{ profile.first_name|title }} {{ profile.last_name|title }} Profile Thumbnail Image"></a>
-                    <div class="card-body">
-                        <div class="row card-subject">
-                            <h6 class="col-12"><a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">{{profile.subject}}</h6></a>
-                        </div>
-                        <h4 class="card-title font-weight-semi pt-1">
-                            <a href="{{url_for('tutor_page', username_id=profile._id)}}">{{profile.first_name|title}} {{profile.last_name|title}}</a>
-                        </h4>
-                        <p class="card-text small crop-text-2">{{profile.about}}</p>
+              <div class="card h-100 radius translate-y">
+                <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt="{{ profile.first_name|title }} {{ profile.last_name|title }} Profile Thumbnail Image"></a>
+                <div class="card-body">
+                    <div class="row card-subject">
+                        <h6 class="col-12"><a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">{{profile.subject}}</a></h6>
                     </div>
-                    <div class="card-footer">
-                        <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                    </div>
+                    <h4 class="card-title font-weight-semi pt-1">
+                        <a href="{{url_for('tutor_page', username_id=profile._id)}}">{{profile.first_name|title}} {{profile.last_name|title}}</a>
+                    </h4>
+                    <p class="card-text small crop-text-2">{{profile.about}}</p>
                 </div>
+                <div class="card-footer">
+                    <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+              </div>
             </div>
             {% else: %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 radius translate-y">
-                  <img class="card-img-top radius-top card-profile-image" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80" alt="Placeholder Profile Thumbnail Image"></a>
-                    <div class="card-body">
-                        <div class="row card-subject">
-                            <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">———</h6>
-                        </div>
-                        <h4 class="card-title font-weight-semi pt-1">Sorry, No Tutor Available </h4>
-                        <p class="card-text small crop-text-2">...</p>
+              <div class="card h-100 radius translate-y">
+                <img class="card-img-top radius-top card-profile-image" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80" alt="Placeholder Profile Thumbnail Image">
+                  <div class="card-body">
+                    <div class="row card-subject">
+                        <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">———</h6>
                     </div>
-                    <div class="card-footer">
-                        <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>N/A</small>
-                    </div>
-                </div>
+                    <h4 class="card-title font-weight-semi pt-1">Sorry, No Tutor Available </h4>
+                    <p class="card-text small crop-text-2">...</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>N/A</small>
+                  </div>
+              </div>
             </div>
             {% endfor %}
           {% endif %}
         </div>
+      </div>
     </div>
 </main>
 {% endblock %}
