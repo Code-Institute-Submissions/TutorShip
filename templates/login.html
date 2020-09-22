@@ -12,7 +12,7 @@
 <main id="register-form" class="container-flex d-flex align-items-center pb-5">
     <form method="POST" action="{{ url_for('login') }}" class="form-signin mt-5">
       <div class="text-center mb-4 mt-5">
-        <img class="my-5" src="../static/images/tutorship-purple.svg" alt="">
+        <img class="my-5" src="{{ url_for('static', filename='images/tutorship-purple.svg') }}" alt="">
         <h1 class="text-left h3 mb-3 font-weight-semi">Sign in to your account</h1>
       </div>
 
