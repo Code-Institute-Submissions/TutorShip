@@ -88,10 +88,14 @@
         <div class="offset-lg-1 col-lg-2 col-6 pt-4 pl-sm-5">
           <h5 class="text-uppercase font-weight-semi">Services</h5>
           <ul class="list-unstyled">
-            {% if 'username' not in session %}
-            <li><a href="{{url_for('register')}}">Tutor Register</a></li>
+            {% if 'username' in session %}
+              {% if session['has_profile'] %}
+              <li><a href="{{ url_for('my_profile', creator_id=session['username'])}}">Your Profile</a></li>
+              {% elif not session['has_profile'] %}
+              <li><a href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a></li>
+              {% endif %}
             {% else %}
-            <li><a href="{{ url_for('my_profile', creator_id=session['username'])}}">Your Profile</a></li>
+            <li><a href="{{url_for('register')}}">Tutor Register</a></li>
             {% endif %}
             <li><a href="{{url_for('pricing')}}">Pricing</a></li>
             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Coming Soon">Features</a></li>
