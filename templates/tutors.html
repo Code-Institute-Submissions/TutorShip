@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}{{subject_selected}} Tutors - Book a Tutor near you now | TutorShip{% endblock %}
 {% block content %}
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
   <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">

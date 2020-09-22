@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}{{ tutor.subject }} Tutor - {{ tutor.first_name|title }} {{ tutor.last_name|title }} | TutorShip{% endblock %}
 {% block content %}
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
   <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
@@ -46,7 +47,7 @@
       <article class="col-sm-6 mt-2 mt-sm-5 pl-lg-5">
         <a href="{{url_for('tutors')}}" class="back-arrow my-2 font-weight-semi float-right pb-3 mb-5 d-none d-sm-flex"><i class="fas fa-long-arrow-alt-left pr-2 align-self-center"></i>Back to Tutors</a>
         <h3 class="mt-3 mt-sm-5 font-weight-semi text-yellow">Hello, I'm...</h3>
-        <h1 class="mt-2 mb-4 font-weight-semi">{{ tutor.first_name|title }}  {{ tutor.last_name|title }}</h1>
+        <h1 class="mt-2 mb-4 font-weight-semi">{{ tutor.first_name|title }} {{ tutor.last_name|title }}</h1>
         <p>{{ tutor.about }}</p>
         
         <div class="row">
