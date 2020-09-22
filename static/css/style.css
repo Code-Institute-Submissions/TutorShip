@@ -46,6 +46,7 @@ a:hover {
 
 .text-yellow {
     color: #FCBC14;
+    overflow-wrap: break-word;
 }
 
 p .text-yellow:hover {
