@@ -62,10 +62,10 @@
             {% for profile in tutor %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 radius translate-y">
-                    <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt=""></a>
+                    <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt="{{ profile.first_name|title }} {{ profile.last_name|title }} Profile Thumbnail Image"></a>
                     <div class="card-body">
                         <div class="row card-subject">
-                            <h6 class="col-12"><a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">{{profile.subject}}</h6></a>
+                            <h6 class="col-12"><a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">{{profile.subject}}</h6></a>
                         </div>
                         <h4 class="card-title font-weight-semi pt-1">
                             <a href="{{url_for('tutor_page', username_id=profile._id)}}">{{profile.first_name|title}} {{profile.last_name|title}}</a>
@@ -80,10 +80,10 @@
             {% else: %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 radius translate-y">
-                  <img class="card-img-top radius-top card-profile-image" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80" alt=""></a>
+                  <img class="card-img-top radius-top card-profile-image" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80" alt="Placeholder Profile Thumbnail Image"></a>
                     <div class="card-body">
                         <div class="row card-subject">
-                            <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2">———</h6>
+                            <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">———</h6>
                         </div>
                         <h4 class="card-title font-weight-semi pt-1">Sorry, No Tutor Available </h4>
                         <p class="card-text small crop-text-2">...</p>
