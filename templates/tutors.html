@@ -65,7 +65,7 @@
         <div class="row">
           {% if subject or tutor %}
             {% for profile in tutor %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
+            <article class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
               <div class="card h-100 radius translate-y">
                 <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt="{{ profile.first_name|title }} {{ profile.last_name|title }} Profile Thumbnail Image"></a>
                 <div class="card-body">
@@ -81,9 +81,9 @@
                     <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
               </div>
-            </div>
+            </article>
             {% else: %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
+            <article class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
               <div class="card h-100 radius translate-y">
                 <img class="card-img-top radius-top card-profile-image" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80" alt="Placeholder Profile Thumbnail Image">
                   <div class="card-body">
@@ -97,7 +97,7 @@
                     <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>N/A</small>
                   </div>
               </div>
-            </div>
+            </article>
             {% endfor %}
           {% endif %}
         </div>
