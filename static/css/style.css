@@ -198,6 +198,10 @@ p .text-yellow:hover {
     padding-right: 10px !important;
 }
 
+.no-italic {
+    font-style: normal;   
+}
+
 /*--------------------------------------------------------------------- Image / Adjustments */
 
 /* Positioning card image src: https://css-tricks.com/almanac/properties/o/object-position/ */
