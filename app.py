@@ -163,6 +163,10 @@ def login():
             if check_password_hash(user['password'], password):
                 flash(f'Welcome back {username}!', 'success')
                 session['username'] = username
+
+                # check if user has profile value and asign session value and log user in
+                if user['has_profile'] == 'yes':
+                    session['has_profile'] = 'yes'
                 return redirect(url_for('home', username=session['username']))
 
             # flash error message if password is incorrect
