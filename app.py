@@ -259,6 +259,9 @@ def delete_profile(username_id):
     # updates has_profile value to no when profile is deleted
     users.update({'username': session['username']}, {'$set': {'has_profile': 'no'}})
 
+    # clear has_profile from session object so user sees create profile link in nav 
+    session.pop('has_profile', None)
+
     flash("Success, your profile has been deleted.")
 
     return redirect(url_for('tutors'))
