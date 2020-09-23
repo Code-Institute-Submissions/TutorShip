@@ -150,37 +150,67 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
 ### Existing Features:
 
 #### Landing Screen:
-   - 
+   - The landing page contains a hero section with a select dropdown listing all the available subjects that are catered for.
+   - An about section follows the hero with a clickable image that opens a video modal.
+   - A testimonials section is next on the page and has two student testimonials.
+   - An email subscription section is last to feature on the page. Users can submit their email address to be used for notification about new tutors and subjects. The emails are stored in a seperate collection int the Mongo database.
 
 #### Navigation:
-   - 
+   - The navbar is static and features across all pages.
+   - The initial navbar links are: Tutors | Pricing | About | Login | Register.
+   - The navbar links change depending on the user state:
+      * If the user is logged in but *does not yet have* a profile then the navbar links are: Tutors | Student Dashboard | Creat Profile | Logout
+      * If the user is logged in and *has created their profile* the navbar links are: Tutors | Student Dashboard | My Profile | Logout
 
-#### Modals:
-   - 
+#### Footer:
+   - The footer features on each page and updates its links based on the users logged in state.
+      * The *Tutor Register* link changes to *Create Profile* if th eusr is logged in but does not yet have a profile. When the user creates a profile te link updates to *My Profile*.
 
 #### Animations:
-   - 
-
-#### Buttons:
-   - 
+   - Subtle animations are used on the home and pricing pages. The JavaScript library, Animate on Scroll is used to create these simple fade in animations.
 
 #### Tutor Directory:
-   - The game console in the main game area contains all gameplay feedback i.e. score, level, active drum, 16 sequencer pads, transport buttons and how to play button.
+   - The **Tutors** link brings the user to the full directory of tutors. A profile card fatures for each registered tutor.
+   - A sidebar is used to display all the subjects catered for. The user can then filter by subject
+   - When the window is resised for mobile the sidebar is hidden and a select dropdown takes its place - again, allowing the user to filter by subject.
+
+#### Tutor Profile Cards:
+   - Each tutor profile card features a profile image, their name, the subject they tutor, a short about them which is truncated and a star rating. the star rating is static but I would like to implement this in a furute version.
 
 #### Tutor Profile:
-   - 
+   - Each tutor profile features their profile image, their name and their full bio. The subject they tutor and qualifications along with how long they have been tutoring for are also included.
+   - *Book Me* and *Facebook Share* buttons are next in the layout and allow a user to contact the tutor via email.
+   - The *Facebook Share* shares the profile to facebook. The Javascript library sharer.js is used for this. This allows the user to recommend the tutor to friends.
+   - If a tutor is registered, signed in and looking at their profile there are two additional buttions in view - Edit and Delete.
+   - The edit button brings the user to a page with a prefilled form with their profile information which they can update.
+   - The delete button opens a modal thats questions the user if they are sure they want to delete their profile. A *"Yes I'm Sure"* button is included on the modal which deletes the their profile. The user is still registered and can remake their profile at a later date.
 
 #### Pricing Page:
-   - 
+   - The pricing page is a mockup of how the full featured subscription TutorShip site would work.
+   - Three pricing tiers are featured: Basic, Premium and Platinium.
+   - Accepted payments are listed below the price table cards.
+
+#### Student Dashboard:
+   - The student dashboard is not an active page but placeholder for a possible future implementation. This would be an area where tutors could track the students they are currently tutoring, take notes, track payments and issue receipts to their students.
 
 #### Login/Register:
-   - 
+   - The login and register pages are visually similar. Tey are a centered form with brief instruction.
+   - The Register page requires a unique username, a unique email and a password that must be 5 or more characters in length and include at least one number. If all requirements are met then your form details are inserted to a *Users* collection on the database.
+   - The login page only requires your username and password to log you in. The details are checked against the details stored on the database. 
 
 ### Create/Edit Profile
-   - 
+   - The create profile and edit profile pages are identical except for their buttons. The create profile submit button inserts the form data to to *Users* collection on the database. 
+   - The edit profile has two buttons - *Cancel* and *Update*. The cancel button links the user back to their profile cancelling the edit profile process. The update button updates the databas with the new form information.
+
+### Flash Messaging
+   - Flash messaging is used to respond to user form inputs highlighting any issues or providing positive feedback on form submission. Two flash messaging styles are used, *success* and *warning* Bootstrap alerts.
 
 ### Features Left to Implement
-* A feature I would like to implement is on scroll lazy loading for the tutors page so the page would not need to load all profile cards at once.
+* A feature I would like to implement is on scroll lazy loading for the tutors page so the page would not need to load all profile cards at once. 
+
+* Another feature I would like to add would be a student dashboard where tutors can track the students they are currently tutoring, take notes, track payments and issue receipts to their students.
+
+* A rating system for the tutors is something I would like to implement in the future. This would be included through the student dashboard section. The students that the tutor has worked with would receive a review form where they could submit a rating based on their experience with the tutor.
 
  - - - - 
 
@@ -197,6 +227,9 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
 
 * [aos.js](https://michalsnik.github.io/aos/)
   * Javascript animated scroll library.
+
+* [sharer.js](https://ellisonleao.github.io/sharer.js/)
+  * Javascript social media share button library.
 
 * [Python](https://www.python.org/)
   * For developing and coding the backend.
@@ -320,18 +353,18 @@ os.environ["SECRET_KEY"] = "<SECRET_KEY>"
 
 #### Heroku Config Vars
 
-T|Key   | Value   |
-    |:-:|:-:|
-    | IP  |0.0.0.0 |
-    | PORT  | 5000  |
-    | MONGO_DBNAME  | <YOUR_DB_NAME>  |
-    | MONGO_URI  | ```mongodb+srv://<username>:<password>.@<cluster_name>.w9nsx.mongodb.net/<database_name>?retryWrites=true&w=majority```   |
-    | SECRET_KEY  | <YOUR_SECRET_KEY>  |
+Key   | Value   |
+:-:|:-:|
+ IP  |0.0.0.0 |
+ PORT  | 5000  |
+ MONGO_DBNAME  | <YOUR_DB_NAME>  |
+ MONGO_URI  | ```mongodb+srv://<username>:<password>.@<cluster_name>.w9nsx.mongodb.net/<database_name>retryWrites=true&w=majority```   |
+ SECRET_KEY  | <YOUR_SECRET_KEY>  |
 
+The app should now be up and running and available at: ```https://<unique_app_name>.herokuapp.com/```
 
  - - - - 
 
-The app should now be up and running and available at: ```https://<unique_app_name>.herokuapp.com/)```
 
 ## Credits
 
