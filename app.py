@@ -18,6 +18,7 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # Index
 @app.route('/')
 @app.route('/home')
@@ -68,7 +69,9 @@ def subject_dropdown():
 # https://gist.github.com/cpatrick/5719077
 @app.route('/tutors/search', methods=['POST'])
 def search():
-    return redirect(url_for('search_tutors', search_for=request.form.get('search_input')))
+    return redirect(url_for(
+        'search_tutors', search_for=request.form.get('search_input')))
+
 
 # Search form results page
 @app.route('/tutors/search/<search_for>')
@@ -84,7 +87,11 @@ def search_tutors(search_for):
     # Assign search term to variable used in loop to display tutor profiles
     search_results = profile.find({"$text": {"$search": search_for}})
     search_number = profile.count_documents({"$text": {"$search": search_for}})
-    return render_template('tutors.html', search_for=search_for, tutor=search_results, search_number=search_number, subjects_in_sidebar=mongo.db.subjects.find())
+    return render_template(
+        'tutors.html', search_for=search_for, tutor=search_results,
+        search_number=search_number,
+        subjects_in_sidebar=mongo.db.subjects.find())
+
 
 # My profile page
 @app.route('/tutors/my_profile/<creator_id>/')
@@ -109,7 +116,8 @@ def register():
         new_user = request.form.get('username')
         new_email = request.form.get('email')
         password = request.form.get('password')
-        username_exists = users.find_one({'username': request.form.get('username')})
+        username_exists = users.find_one(
+            {'username': request.form.get('username')})
         email_exists = users.find_one({'email': request.form.get('email')})
 
         # check if password is 5 characters or more
@@ -123,14 +131,16 @@ def register():
             flash('Password must include at least one number.')
             return redirect(url_for('register'))
 
-        # check if username exists - if so, flash warning. If username doesn't exist then
-        # check if email exists - if so, flash warning. If email doesn't exist then
+        # check if username exists - if so, flash warning.
+        # If username doesn't exist then check if email exists -
+        # if so, flash warning. If email doesn't exist then
         # inserts form data to users collection and redirect to create profile
-        # create key for has_profile and set to no - to be later updated when user creates profile
+        # create key for has_profile and set to no -
+        # to be later updated when user creates profile
         if username_exists:
             flash('''Username already exists.''')
             return redirect(url_for('register'))
-        
+
         # if email exists flash try again message
         if email_exists:
             flash('''Email already exists.''')
@@ -139,13 +149,12 @@ def register():
         else:
             users.insert_one(
                 {'username': new_user,
-                    'email': new_email, 'has_profile': 'no','password':
+                    'email': new_email, 'has_profile': 'no', 'password':
                     generate_password_hash(password)})
             session['username'] = new_user
             session['email'] = new_email
             return redirect(url_for(
                     'create_profile', username=session['username']))
-
 
     return render_template('register.html')
 
@@ -169,7 +178,8 @@ def login():
                 flash(f'Welcome back {username}!', 'success')
                 session['username'] = username
 
-                # check if user has profile value and asign session value and log user in
+                # check if user has profile value and asign
+                # session value and log user in
                 if user['has_profile'] == 'yes':
                     session['has_profile'] = 'yes'
                 return redirect(url_for('home', username=session['username']))
@@ -216,8 +226,8 @@ def insert_profile():
         })
 
         # updates has_profile value to yes when profile is created
-        users.update({'username': session['username']}, {'$set': {'has_profile': 'yes'}})
-    
+        users.update({'username': session[
+            'username']}, {'$set': {'has_profile': 'yes'}})
         session['has_profile'] = 'yes'
 
         flash("Your tutor profile is live!", 'success')
@@ -262,9 +272,11 @@ def delete_profile(username_id):
     profile.remove({'_id': ObjectId(username_id)})
 
     # updates has_profile value to no when profile is deleted
-    users.update({'username': session['username']}, {'$set': {'has_profile': 'no'}})
+    users.update({'username': session[
+        'username']}, {'$set': {'has_profile': 'no'}})
 
-    # clear has_profile from session object so user sees create profile link in nav 
+    # clear has_profile from session object
+    # so user sees create profile link in nav
     session.pop('has_profile', None)
 
     flash("Success, your profile has been deleted.")
