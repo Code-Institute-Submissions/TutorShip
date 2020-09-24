@@ -2,7 +2,7 @@
 
 ### Code Institute: Data Centric Development Milestone Project
 
-![TutorShip Logo](https://justinmcc066.github.io/TutorShip/assets/images/tutorship-logo.png)
+![TutorShip Logo](https://github.com/JustinMcC066/TutorShip/blob/master/static/images/tutorship-purple.svg)
 
 ## TutorShip - [Live Site](https://tutorship-app.herokuapp.com/)
 
@@ -67,17 +67,17 @@ The goal of this website is to:
 
 * "As a user I want to easily contact the tutor to organise booking."
 
-* "As a user I and tutor I want to know the cost of the service."
+* "As a user and tutor I want to know the cost of the service."
 
-* "As a user I and tutor I want to easily create my profile."
+* "As a user and tutor I want to easily create my profile."
 
-* "As a user I and tutor I want to easily update my profile."
+* "As a user and tutor I want to easily update my profile."
 
-* "As a user I and tutor I want to be able to delete my profile if needed."
+* "As a user and tutor I want to be able to delete my profile if needed."
 
-* "As a user I and tutor I want the ability to be contacted."
+* "As a user and tutor I want the ability to be contacted."
 
-* "As a user I and tutor I want the ability to be recommended."
+* "As a user and tutor I want the ability to be recommended."
 
 
 
@@ -212,6 +212,8 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
 * Another feature I would like to add would be a student dashboard where tutors can track the students they are currently tutoring, take notes, track payments and issue receipts to their students.
 
 * A rating system for the tutors is something I would like to implement in the future. This would be included through the student dashboard section. The students that the tutor has worked with would receive a review form where they could submit a rating based on their experience with the tutor.
+
+* I would like to add the option for users to upload their profile image directly instead of pasting a link to an image hosted elsewhere.
 
  - - - - 
 
