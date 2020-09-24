@@ -113,7 +113,7 @@ Layouts were created for mobile, tablet and desktop to assist the design decisio
 * [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
 * [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
 * [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/m)
+* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
 * [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
 * [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
 
@@ -164,18 +164,19 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
 
 #### Footer:
    - The footer features on each page and updates its links based on the users logged in state.
-      * The *Tutor Register* link changes to *Create Profile* if th eusr is logged in but does not yet have a profile. When the user creates a profile te link updates to *My Profile*.
+      * The *Tutor Register* link changes to *Create Profile* if the user is logged in but does not yet have a profile. When the user creates a profile the link updates to *My Profile*.
 
 #### Animations:
    - Subtle animations are used on the home and pricing pages. The JavaScript library, Animate on Scroll is used to create these simple fade in animations.
 
 #### Tutor Directory:
-   - The **Tutors** link brings the user to the full directory of tutors. A profile card fatures for each registered tutor.
-   - A sidebar is used to display all the subjects catered for. The user can then filter by subject
+   - The *Tutors* link brings the user to the full directory of tutors. A profile card features for each registered tutor.
+   - A sidebar is used to display all the subjects catered for allowing the user to filter by subject.
    - When the window is resised for mobile the sidebar is hidden and a select dropdown takes its place - again, allowing the user to filter by subject.
 
 #### Tutor Profile Cards:
-   - Each tutor profile card features a profile image, their name, the subject they tutor, a short about them which is truncated and a star rating. the star rating is static but I would like to implement this in a furute version.
+   - Each tutor profile card features a profile image, their name, the subject they tutor, a short about them which is truncated and a star rating.
+   - The star rating is static but I would like to implement this in a furute version.
 
 #### Tutor Profile:
    - Each tutor profile features their profile image, their name and their full bio. The subject they tutor and qualifications along with how long they have been tutoring for are also included.
