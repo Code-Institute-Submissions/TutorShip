@@ -32,7 +32,6 @@ The aim of this website is to give students a place to find tutors, mentors and 
 6. [Credits](#Credits "Goto Credits")
     * [Code](#Code "Goto Code")
     * [Media](#Media "Goto Media")
-    * [Acknowledgements](#Acknowledgements "Goto Acknowledgements")
 
  - - - -
 
@@ -220,6 +219,7 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
 
 * I would like to add the option for users to upload their profile image directly instead of pasting a link to an image hosted elsewhere.
 
+* I would like to add a contact form modal to contact each tutor when the *Book Me* button is clicked. This would keep the user on the page and make for a better user experience.
  - - - - 
 
  ## Technologies Used
