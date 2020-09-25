@@ -54,9 +54,15 @@ def tutor_page(username_id):
 # Individual subject tutor list
 @app.route('/tutors/subject', methods=["GET"])
 def subject_dropdown():
+    # store dictionary object of the query string
     subject_selected = request.args.get('subject_selected')
+    # pass the subject selected as the value for
+    # the subject key in subjects db collection
     subject = mongo.db.subjects.find_one({'subject_name': subject_selected})
+    # pass the subject selected as the value for
+    # the subject key in profile db collection
     tutor = mongo.db.profile.find({'subject': subject_selected})
+    # store subject list in variable to loop through in template
     subjects = mongo.db.subjects.find()
     subjects_in_sidebar = mongo.db.subjects.find()
     return render_template(
@@ -131,6 +137,12 @@ def register():
             flash('Password must include at least one number.')
             return redirect(url_for('register'))
 
+        # prevent user from entering characters that are not alphanumeric
+        for name in new_user:
+            if not name.isalnum():
+                flash('Only letters (a-z) and numbers (0-9) allowed.')
+                return redirect(url_for('register'))
+
         # check if username exists - if so, flash warning.
         # If username doesn't exist then check if email exists -
         # if so, flash warning. If email doesn't exist then
@@ -175,7 +187,7 @@ def login():
         # check if user is registered
         if user:
             if check_password_hash(user['password'], password):
-                flash(f'Welcome back {username}!', 'success')
+                flash(f'Welcome back {username}!')
                 session['username'] = username
 
                 # check if user has profile value and asign
@@ -202,7 +214,7 @@ def login():
 @app.route('/create_profile', methods=['GET', 'POST'])
 def create_profile():
     if 'username' in session:
-        flash('You have sucessfully registered', 'success')
+        flash("You're registered! Let's create your profile")
         return render_template('create_profile.html')
 
 
@@ -211,7 +223,7 @@ def create_profile():
 def insert_profile():
     profile = mongo.db.profile
     users = mongo.db.users
-
+    # insert form input information to profile collection in the database
     if request.method == 'POST':
         profile.insert_one({
             'first_name': request.form.get('first_name').lower(),
@@ -230,7 +242,7 @@ def insert_profile():
             'username']}, {'$set': {'has_profile': 'yes'}})
         session['has_profile'] = 'yes'
 
-        flash("Your tutor profile is live!", 'success')
+        flash("Your tutor profile is live!")
 
         return redirect(url_for('my_profile', creator_id=session['username']))
 
@@ -246,7 +258,8 @@ def edit_profile(username_id):
 @app.route('/update_profile/<username_id>', methods=['GET', 'POST'])
 def update_profile(username_id):
     profile = mongo.db.profile
-
+    # update database values with form input information
+    # and flash success message
     profile.update({'_id': ObjectId(username_id)}, {
             'first_name': request.form.get('first_name').lower(),
             'last_name': request.form.get('last_name').lower(),
@@ -259,7 +272,7 @@ def update_profile(username_id):
             'created_by': session['username']
         })
 
-    flash('Success! Your profile has been updated!', 'success')
+    flash('Success! Your profile has been updated!')
 
     return redirect(url_for('my_profile', creator_id=session['username']))
 
@@ -271,7 +284,7 @@ def delete_profile(username_id):
     users = mongo.db.users
     profile.remove({'_id': ObjectId(username_id)})
 
-    # updates has_profile value to no when profile is deleted
+    # updates has_profile value to 'no' when profile is deleted
     users.update({'username': session[
         'username']}, {'$set': {'has_profile': 'no'}})
 
@@ -279,6 +292,7 @@ def delete_profile(username_id):
     # so user sees create profile link in nav
     session.pop('has_profile', None)
 
+    # flash success message
     flash("Success, your profile has been deleted.")
 
     return redirect(url_for('tutors'))
@@ -287,15 +301,27 @@ def delete_profile(username_id):
 # Email subscription
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
+
+    # adds email address to 'subscribers' collection in database
+    # flash successful message to user if email is unique
+    # if email is already subscribed then flash 'alredy signed up' message
     subscriber = mongo.db.subscribers
-    subscriber.insert_one(request.form.to_dict())
-    flash('Thanks for subscribing!', 'success')
-    return redirect(url_for('home'))
+    subscriber_exists = subscriber.find_one(
+            {'email': request.form.get('email')})
+    if subscriber_exists:
+            flash('''Looks like you're already signed up.''')
+            return redirect(url_for('home'))
+    else:
+        subscriber.insert_one(request.form.to_dict())
+        flash('Thanks for subscribing!')
+        return redirect(url_for('home'))
 
 
 # Logout
 @app.route('/logout')
 def logout():
+
+    # clear the session and log user out
     session.clear()
     flash('You have been logged out')
     return redirect(url_for('home'))
