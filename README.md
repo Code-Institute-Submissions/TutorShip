@@ -339,7 +339,7 @@ git clone https://github.com/JustinMcC066/TutorShip.git
 ```
 pip3 install -r requirements.txt
 ```
-6. Create an env.py file to store your MONGO_DBNAME, MONGO_URI and SECRET_KEY.
+7. Create an env.py file to store your MONGO_DBNAME, MONGO_URI and SECRET_KEY.
 The env file should include the following:
 ```
 import os
@@ -348,7 +348,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>.@<cluster_name>.w
 os.environ["MONGO_DBNAME"] = "<MONGO_DB_NAME>"
 os.environ["SECRET_KEY"] = "<SECRET_KEY>"
 ```
-7. For development and debugging, set the debug=True in the app.py file.
+8. For development and debugging, set the debug=True in the app.py file.
 
 #### To deploy the app, follow the steps below:
 
