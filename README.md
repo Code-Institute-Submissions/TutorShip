@@ -91,7 +91,7 @@ Layouts were created for mobile, tablet and desktop to assist the design decisio
 **Desktop**
 
 * [Home Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-home-page.png)
-* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-tutor-dirctory.png)
+* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-tutor-directory.png)
 * [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-profile-page.png)
 * [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-pricing-page.png)
 * [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-login-page.png)
