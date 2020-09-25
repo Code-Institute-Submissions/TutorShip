@@ -31,20 +31,20 @@
           <ul class="navbar-nav ml-auto align-items-center">
             {% if 'username' in session %}
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="{{url_for('tutors')}}">Tutors
+              <a class="nav-link {% if active=='tutors' %} active {%endif %}" href="{{url_for('tutors')}}">Tutors
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Coming Soon"> Student Dashboard</a>
+              <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Coming Soon">Student Dashboard</a>
             </li>
             {% if session['has_profile'] %}
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="{{ url_for('my_profile', creator_id=session['username'])}}">My Profile</a>
+              <a class="nav-link {% if active=='my_profile' %} active {%endif %}" href="{{ url_for('my_profile', creator_id=session['username'])}}">My Profile</a>
             </li>
             {% elif not session['has_profile'] %}
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a>
+              <a class="nav-link {% if active=='create_profile' %} active {%endif %}" href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a>
             </li>
             {% endif %}
             <li class="nav-item">
@@ -54,20 +54,20 @@
             </li>
             {% else %}
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="{{url_for('tutors')}}">Tutors
+              <a class="nav-link {% if active=='tutors' %} active {%endif %}" href="{{url_for('tutors')}}">Tutors
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="{{url_for('pricing')}}">Pricing</a>
+              <a class="nav-link {% if active=='pricing' %} active {%endif %}" href="{{url_for('pricing')}}">Pricing</a>
             </li>
             <li class="nav-item pr-md-3">
               <a class="nav-link" href="{{url_for('home')+ '#about-section'}}">About</a>
             </li>
             <li class="nav-item pr-md-3">
-              <a class="nav-link" href="{{url_for('login')}}">Login</a>
+              <a class="nav-link {% if active=='login' %} active {%endif %}" href="{{url_for('login')}}">Login</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if active=='register' %} active {%endif %}">
               <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('register')}}">Register</a>
             </li>
             {% endif %}

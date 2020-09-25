@@ -33,7 +33,8 @@ def tutors():
     return render_template(
         'tutors.html', tutor=mongo.db.profile.find(),
         subjects=mongo.db.subjects.find(),
-        subjects_in_sidebar=mongo.db.subjects.find())
+        subjects_in_sidebar=mongo.db.subjects.find(),
+        active='tutors')
 
 
 # Individual subject tutor list
@@ -104,13 +105,13 @@ def search_tutors(search_for):
 def my_profile(creator_id):
     profile = mongo.db.profile
     tutor = profile.find_one({'created_by': creator_id})
-    return render_template('profile.html', tutor=tutor)
+    return render_template('profile.html', tutor=tutor, active='my_profile')
 
 
 # Pricing
 @app.route('/pricing')
 def pricing():
-    return render_template('pricing.html')
+    return render_template('pricing.html', active='pricing')
 
 
 # Register
@@ -168,7 +169,7 @@ def register():
             return redirect(url_for(
                     'create_profile', username=session['username']))
 
-    return render_template('register.html')
+    return render_template('register.html', active='register')
 
 
 # Login
@@ -207,7 +208,7 @@ def login():
             on file. Want to regitser?''')
             return redirect(url_for('login'))
 
-    return render_template('login.html')
+    return render_template('login.html', active='login')
 
 
 # Create profile
@@ -215,7 +216,7 @@ def login():
 def create_profile():
     if 'username' in session:
         flash("You're registered! Let's create your profile")
-        return render_template('create_profile.html')
+        return render_template('create_profile.html', active='create_profile')
 
 
 # Insert profile
