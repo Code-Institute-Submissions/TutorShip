@@ -20,12 +20,12 @@
       <div class="list-group">
         <a href="{{url_for('tutors')}}" class="h5 list-group-item"><i
             class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors{% if not subject %}<i
-            class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
+            class="fas fa-hand-point-right active pl-2 text-yellow"></i>{% endif %}</a>
         <div class="list-group">
           {% for subject_sidebar in subjects_in_sidebar %}
           <a href="{{url_for('subject_dropdown', subject_selected=subject_sidebar.subject_name)}}" class="h5 list-group-item">
             {% if subject_selected==subject_sidebar.subject_name%}
-            <i class="fas fa-hand-point-right active pr-2"></i>
+            <i class="fas fa-hand-point-right active pr-2 text-yellow"></i>
             {% endif %}{{subject_sidebar.subject_name}}
           </a>
           {% endfor %}
