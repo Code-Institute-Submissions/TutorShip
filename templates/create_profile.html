@@ -2,6 +2,7 @@
 {% block title %}Launch Your Tutor Profile | TutorShip{% endblock %}
 {% block content %}
 
+<!-- Flash messaging -->
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
 <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
   {{ message }} <i class="fas fa-user-check ml-2"></i>
@@ -11,6 +12,7 @@
 </h4>
 {% endfor %} {% endif %} {% endwith %}
 
+<!-- Create profile form -->
 <main id="register-form" class="container-fluid d-flex align-items-center pb-5 mt-5">
   <form id="form" action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
     <div class="text-center mb-4 mt-5">
@@ -97,5 +99,8 @@
     </div>
   </form>
 </main>
+
+<!-- Form validation script link -->
 <script src="{{ url_for('static', filename='js/form_validation.js') }}"></script>
+
 {% endblock %}

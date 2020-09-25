@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}{{ tutor.subject }} Tutor - {{ tutor.first_name|title }} {{ tutor.last_name|title }} |
-TutorShip{% endblock %}
+{% block title %}{{ tutor.subject }} Tutor - {{ tutor.first_name|title }} {{ tutor.last_name|title }} | TutorShip{% endblock %}
 {% block content %}
+
+<!-- Flash messaging -->
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-<h4
-  class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0"
-  role="alert">
+<h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
   {{ message }} <i class="fas fa-user-check ml-2"></i>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -57,7 +56,7 @@ TutorShip{% endblock %}
       </div>
     </div>
 
-    <!-- Tutor Pprofile content -->
+    <!-- Tutor Profile content -->
     <article class="col-sm-6 mt-2 mt-sm-5 pl-lg-5">
       <a href="{{url_for('tutors')}}" class="back-arrow my-2 font-weight-semi float-right pb-3 mb-5 d-none d-sm-flex"><i
           class="fas fa-long-arrow-alt-left pr-2 align-self-center"></i>Back to Tutors</a>
@@ -87,6 +86,7 @@ TutorShip{% endblock %}
         </div>
       </div>
 
+      <!-- Book and share buttons -->
       <div class="row mt-4 text-center text-sm-left">
         <div class="col-12 col-md-6 mb-3">
           <a href="mailto:{{ tutor.email }}" class="purple-btn px-4 rounded-pill pt-1">Book Me</a>
@@ -97,7 +97,8 @@ TutorShip{% endblock %}
           </button>
         </div>
       </div>
-
+      
+      <!-- Back to tutors link -->
       <div class="row mt-4 d-flex d-sm-none text-center">
         <div class="col-md-4 mb-3">
           <a href="{{url_for('tutors')}}" class="yellow-btn px-4 rounded-pill p-1">
