@@ -67,6 +67,8 @@ The goal of this website is to:
 
 * "As a user I want to easily contact the tutor to organise booking."
 
+* "As a user I want to receive updates about the service."
+
 * "As a user and tutor I want to know the cost of the service."
 
 * "As a user and tutor I want to easily create my profile."
@@ -88,34 +90,34 @@ Layouts were created for mobile, tablet and desktop to assist the design decisio
 
 **Desktop**
 
-* [Home Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
-* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
-* [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
-* [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
-* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
-* [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
-* [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/)
+* [Home Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-home-page.png)
+* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-tutor-dirctory.png)
+* [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-profile-page.png)
+* [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-pricing-page.png)
+* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-login-page.png)
+* [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-register-page.png)
+* [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/desktop/desktop-create-edit-profile-page.png)
 
 **Tablet**
 
-* [Home Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
-* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
-* [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
-* [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
-* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
-* [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
-* [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/)
+* [Home Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-home-page.png)
+* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-tutor-directory.png)
+* [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-profile-page.png)
+* [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-pricing-page.png)
+* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-login-page.png)
+* [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-register-page.png)
+* [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/tablet/tablet-create-edit-profile-page.png)
 
 
 **Mobile**
 
-* [Landing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
-* [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/)
+* [Landing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-home-page.png)
+* [Tutors Directory Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-tutor-directory.png)
+* [Tutor Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-profile-page.png)
+* [Pricing Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-pricing-page.png)
+* [Login Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-login-page.png)
+* [Register Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-register-page.png)
+* [Create/Edit Profile Page](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/wireframes/mobile/mobile-create-edit-profile-page.png)
 
 
 ### Surface
@@ -203,6 +205,9 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
    - The create profile and edit profile pages are identical except for their buttons. The create profile submit button inserts the form data to to *Users* collection on the database. 
    - The edit profile has two buttons - *Cancel* and *Update*. The cancel button links the user back to their profile cancelling the edit profile process. The update button updates the databas with the new form information.
 
+### Email subscription
+   - The home page features a notification section where users can subscribe to receive updtes via email about the TutorShip service. Flash messaging is included to inform the user if they have subscribed successfully.
+
 ### Flash Messaging
    - Flash messaging is used to respond to user form inputs highlighting any issues or providing positive feedback on form submission. Two flash messaging styles are used, *success* and *warning* Bootstrap alerts.
 
@@ -253,7 +258,7 @@ Subtle fade-in animations are triggered on scroll which provide an engaging expe
   * For creating and storing NoSQL database information.
 
 * [Autoprefixer CSS](https://autoprefixer.github.io/)
-  * USed for adding prefixes to CSS classes to ensure browser consistency and compatibility.
+  * Used for adding prefixes to CSS classes to ensure browser consistency and compatibility.
 
 * [Google Fonts](https://fonts.google.com/)
   * For linking fonts for use on the site.
@@ -378,6 +383,10 @@ The following sites were used for inspiration and assistance:
 * [Stack Overflow](https://stackoverflow.com/)
 * [Miguel Grinberg Blog](https://blog.miguelgrinberg.com/)
 * [Pythonise](https://pythonise.com/)
+
+Assistace for Werkzeug security password hashing:
+* [MiroslavSvec](https://github.com/MiroslavSvec/DCD_lead/blob/master/app.py)
+
 
 ### Media
 The images used on this site are royalty free and were obtained from [Unsplash](https://unsplash.com/)
