@@ -721,6 +721,7 @@ button:focus {
 
     #envelope {
         width: 200px;
+        height: auto;
     }
 
     .bg-divide h3 {
