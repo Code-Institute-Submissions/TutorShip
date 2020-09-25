@@ -719,7 +719,7 @@ button:focus {
         height: 35px;
     }
 
-    #envelope {
+    .envelope {
         width: 80%;
         height: auto;
     }

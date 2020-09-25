@@ -73,9 +73,7 @@
         <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk"
           data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500"
           class="d-flex col-md-6 pt-2 pt-sm-5 border-0 bg-transparent video-btn order-first order-sm-last">
-          <img id="video-image" class="translate-y d-none d-sm-flex" src="{{ url_for('static', filename='images/video-lg.png') }}"
-            alt="Smiling female tutor and play button icon overlayed">
-          <img id="video-image" class="translate-y d-flex d-sm-none" src="{{ url_for('static', filename='images/video-sm.png') }}"
+          <img id="video-image" class="translate-y d-flex" src="{{ url_for('static', filename='images/video-lg.png') }}"
             alt="Smiling female tutor and play button icon overlayed">
         </button>
       </div>
@@ -164,9 +162,9 @@
   <section class="container-fluid bg-divide pb-5 text-white">
     <div data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="1000" class="container text-white">
       <div class="d-flex justify-content-end pb-5 pb-md-0">
-        <img id="envelope" class="minus-margin-100 pr-5 d-none d-sm-flex" src="{{ url_for('static', filename='images/message-lg.png') }}"
+        <img class="minus-margin-100 pr-5 d-none d-sm-flex" src="{{ url_for('static', filename='images/message-lg.png') }}"
           alt="3D purple envelope with overlayed number one">
-        <img id="envelope" class="minus-margin-100 pr-5 d-flex d-sm-none" src="{{ url_for('static', filename='images/message-sm.png') }}"
+        <img class="minus-margin-100 pr-5 d-flex d-sm-none" src="{{ url_for('static', filename='images/message-sm.png') }}"
           alt="3D purple envelope with overlayed number one">
       </div>
       <div class="bg-yellow pt-5 card-body text-navy radius pl-4 pl-sm-5">
