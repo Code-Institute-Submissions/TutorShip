@@ -30,6 +30,6 @@ form.addEventListener('submit', (e) => {
 
   if (errorMessage.length > 0) {
     e.preventDefault()
-    errorText.innerText = errorMessage.join(', ')
+    errorText.innerText = errorMessage.join(' ')
   }
 })
