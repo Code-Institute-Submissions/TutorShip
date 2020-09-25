@@ -2,34 +2,39 @@
 {% block title %}Let's get you logged in | TutorShip{% endblock %}
 {% block content %}
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-  <h4 class="col-12 alert m-auto alert-danger alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
-    <i class="fas fa-exclamation-triangle"></i> {{ message }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </h4>
+<h4 class="col-12 alert m-auto alert-danger alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
+  <i class="fas fa-exclamation-triangle"></i> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</h4>
 {% endfor %} {% endif %} {% endwith %}
 <main id="register-form" class="container-flex d-flex align-items-center pb-5">
-    <form method="POST" action="{{ url_for('login') }}" class="form-signin mt-5">
-      <div class="text-center mb-4 mt-5">
-        <img class="my-5" src="{{ url_for('static', filename='images/tutorship-purple.svg') }}" alt="Tutorship Logo">
-        <h1 class="text-left h3 mb-3 font-weight-semi">Sign in to your account</h1>
-      </div>
+  <form method="POST" action="{{ url_for('login') }}" class="form-signin mt-5">
+    <div class="text-center mb-4 mt-5">
+      <img class="my-5" src="{{ url_for('static', filename='images/tutorship-purple.svg') }}" alt="Tutorship Logo">
+      <h1 class="text-left h3 mb-3 font-weight-semi">Sign in to your account</h1>
+    </div>
 
-      <label for="username">Username</label>
-      <div class="form-label-group">
-        <input type="text" id="username" name="username" class="form-control p-4 rounded-pill mb-4" placeholder="Enter a username" required="" autofocus="" autocomplete="off">
-      </div>
-      
-      <label for="password">Password</label>
-      <div class="form-label-group">
-        <input type="password" id="password" name="password" class="form-control p-4 rounded-pill mb-4" placeholder="Your password" required="" autocomplete="off">
-      </div>
-      <div class="row ml-1 pb-5">
-        <button class="col-4 submit-btn h5 font-weight-semi rounded-pill mr-4" type="submit">Login</button>
-        <p class="text-muted d-flex align-items-center pt-1 pb-5">Don't have an account?<a href="{{url_for('register')}}" class="d-flex align-items-center pl-2">Register</a></p>
-      </div>
-    </form>
-    
+    <label for="username">Username</label>
+    <div class="form-label-group">
+      <input type="text" id="username" name="username" class="form-control p-4 rounded-pill mb-4"
+        placeholder="Enter a username" required autofocus="" autocomplete="off">
+    </div>
+
+    <label for="password">Password</label>
+    <div class="form-label-group">
+      <input type="password" id="password" name="password" class="form-control p-4 rounded-pill mb-4"
+        placeholder="Your password" required autocomplete="off">
+    </div>
+    <div class="row ml-1 pb-5">
+      <button class="col-4 submit-btn h5 font-weight-semi rounded-pill mr-4" type="submit">Login</button>
+      <p class="text-muted d-flex align-items-center pt-1 pb-5">Don't have an account?
+        <a href="{{url_for('register')}}"
+          class="d-flex align-items-center pl-2">Register
+        </a>
+      </p>
+    </div>
+  </form>
 </main>
 {% endblock %}

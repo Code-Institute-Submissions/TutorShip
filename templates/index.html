@@ -2,157 +2,182 @@
 {% block title %}TutorShip | Find a tutor near you{% endblock %}
 {% block content %}
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-  <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
-    {{ message }} <i class="fas fa-user-check ml-2"></i> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </h4>
+<h4
+  class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0"
+  role="alert">
+  {{ message }} <i class="fas fa-user-check ml-2"></i>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</h4>
 {% endfor %} {% endif %} {% endwith %}
+
 <main class="container-fluid p-0">
-    
-    <!-- Hero/Header section -->
-    <header class="container-flex bg-purple hero-background text-white  z-index">
-      <div class="jumbotron container mt-5 bg-transparent pb-0">
-        <div class="row">
-          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="col-md-6 align-self-center">
-            <h1 class="hero-text font-weight-bold pt-4 pt-md-0">Your journey to success.</h1>
-            <p class="mb-5 d-none d-sm-flex">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
-            <h2 class="font-weight-semi text-yellow my-3">Find a tutor in Dublin:</h2>
-            <!-- Form dropdown -->
-            <form class="input-group d-flex col-12 my-3 pl-0" action="{{ url_for('subject_dropdown')}}" method="GET">
-              <select name="subject_selected" class="pl-4 custom-select" id="inputGroupSelect01">
-                  <option selected disabled>Choose Your Subject</option>
-                  {% for subject_home in subjects_in_sidebar %}
-                  <option>{{subject_home.subject_name}}</option>
-                  {% endfor %}
-              </select>
-              <span class="input-group-btn">
-                  <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
-              </span>
-            </form>
 
-            {% if 'username' not in session %}
-            <p class="d-flex col-12 p-0 text-white">Want to register as a tutor?<a href="{{url_for('register')}}" class="d-flex pl-2 text-yellow">Click here</a></p>
-            {% endif %}
-          </div>
-          <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" class="d-none d-md-flex col-md-6">
-            <img src="{{ url_for('static', filename='images/male-cutout.png') }}" class="male-cutout img-responsive" alt="Smart male with arms folded smiling">
-          </div>
-        </div> 
+  <!-- Hero/Header section -->
+  <header class="container-flex bg-purple hero-background text-white  z-index">
+    <div class="jumbotron container mt-5 bg-transparent pb-0">
+      <div class="row">
+        <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="col-md-6 align-self-center">
+          <h1 class="hero-text font-weight-bold pt-4 pt-md-0">Your journey to success.</h1>
+          <p class="mb-5 d-none d-sm-flex">Let your knowledge get off the ground. We are your learning launchpad. Let
+            your knowledge get off the ground. We are your learning launchpad.</p>
+          <h2 class="font-weight-semi text-yellow my-3">Find a tutor in Dublin:</h2>
+          <!-- Form dropdown -->
+          <form class="input-group d-flex col-12 my-3 pl-0" action="{{ url_for('subject_dropdown')}}" method="GET">
+            <select name="subject_selected" class="pl-4 custom-select" id="inputGroupSelect01">
+              <option selected disabled>Choose Your Subject</option>
+              {% for subject_home in subjects_in_sidebar %}
+              <option>{{subject_home.subject_name}}</option>
+              {% endfor %}
+            </select>
+            <span class="input-group-btn">
+              <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
+            </span>
+          </form>
+
+          {% if 'username' not in session %}
+          <p class="d-flex col-12 p-0 text-white">Want to register as a tutor?
+            <a href="{{url_for('register')}}" class="d-flex pl-2 text-yellow">
+              Click here
+            </a>
+          </p>
+          {% endif %}
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300" class="d-none d-md-flex col-md-6">
+          <img src="{{ url_for('static', filename='images/male-cutout.png') }}" class="male-cutout img-responsive"
+            alt="Smart male with arms folded smiling">
+        </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- About section -->
-    <article id="about-section" data-spy="scroll" class="container-flex text-white my-2 my-sm-5">
-      <div class="jumbotron container bg-transparent">
-        <div class="row">
-          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000" class="col-md-6 align-self-center">
-            <h2 class="hero-text text-navy font-weight-bold mb-4">Why Us?</h2>
-            <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
-            <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
-            <div class="col-md-6 mb-3 p-0">
-              <a href="{{url_for('tutors')}}" class="purple-btn px-4 rounded-pill pt-1">Find A Tutor</a>
-            </div>
+  <!-- About section -->
+  <article id="about-section" data-spy="scroll" class="container-flex text-white my-2 my-sm-5">
+    <div class="jumbotron container bg-transparent">
+      <div class="row">
+        <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000" class="col-md-6 align-self-center">
+          <h2 class="hero-text text-navy font-weight-bold mb-4">Why Us?</h2>
+          <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your
+            knowledge get off the ground. We are your learning launchpad.</p>
+          <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let
+            your knowledge get off the ground. We are your learning launchpad.</p>
+          <div class="col-md-6 mb-3 p-0">
+            <a href="{{url_for('tutors')}}" class="purple-btn px-4 rounded-pill pt-1">Find A Tutor</a>
           </div>
-          <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk" data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500" class="d-flex col-md-6 pt-2 pt-sm-5 border-0 bg-transparent video-btn order-first order-sm-last">
-            <img id="video-image" class="translate-y" src="{{ url_for('static', filename='images/video.png') }}" alt="Smiling female tutor and play button icon overlayed">
-          </button>
-        </div> 
+        </div>
+        <button type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/pVE92TNDwUk"
+          data-target="#myModal" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1500"
+          class="d-flex col-md-6 pt-2 pt-sm-5 border-0 bg-transparent video-btn order-first order-sm-last">
+          <img id="video-image" class="translate-y" src="{{ url_for('static', filename='images/video.png') }}"
+            alt="Smiling female tutor and play button icon overlayed">
+        </button>
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>        
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" id="video" allow="autoplay"></iframe>
-            </div>
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" id="video" allow="autoplay"></iframe>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Results section -->
-    <article class="container-flex text-white my-2 my-sm-5">
-      <div class="jumbotron container bg-transparent">
-        <div class="row">
-          <div data-aos="fade-right" data-aos-duration="1000" class="d-flex col-md-6 pt-2 pt-sm-5 text-center justify-content-center">
-            <img id="results-image" src="{{ url_for('static', filename='images/results.png') }}" alt="Colourful 3D pie-chart">
-          </div>
-          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="col-md-6 align-self-center">
-            <h2 class="hero-text text-navy font-weight-bold mb-4">Resuts driven</h2>
-            <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
-            <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your knowledge get off the ground. We are your learning launchpad.</p>
-            {% if 'username' not in session %}
-            <div class="col-md-6 mb-3 p-0">
-              <a href="{{url_for('register')}}" class="yellow-btn px-4 rounded-pill pt-1">Sign Up now</a>
-            </div>
-            {% endif %}
-          </div>
-        </div> 
-      </div>
-    </article>
-
-    <!-- Testimonials section -->
-    <section id="testimonials" class="container text-white my-2 my-sm-5 pt-2 pt-sm-5">
-      <h2 class="hero-text text-navy font-weight-bold mb-2 mb-sm-5 py-2 py-sm-5">What our students say...</h2>
+  <!-- Results section -->
+  <article class="container-flex text-white my-2 my-sm-5">
+    <div class="jumbotron container bg-transparent">
       <div class="row">
-          <article data-aos="fade-up" data-aos-duration="1000" class="col-lg-6 col-md-6 mb-4">
-            <div class="h-100">
-              <div class="d-flex justify-content-end">
-                <img class="minus-margin" src="{{ url_for('static', filename='images/testimonial-profile-girl.png') }}" alt="Profile image of girl sitting at desk">
-              </div>
-              <blockquote class="bg-blue pt-5 card-body text-navy radius">
-                <cite class="h3 font-weight-semi d-block no-italic">Aileen O'Sullivan</cite>
-                <cite class="h5 font-weight-semi text-muted d-block no-italic">Leaving Certificate Student</cite>
-              <p class="card-text col-12 col-sm-8 p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              <div class="d-flex text-yellow font-weight-semi justify-content-center">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-            </blockquote>
-            </div>
-          </article>
-
-          <article data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="col-lg-6 col-md-6 mb-4">
-            <div class="h-100">
-              <div class="d-flex justify-content-end">
-                <img class="minus-margin" src="{{ url_for('static', filename='images/testimonial-profile-guy.png') }}" alt="Profile image of young male standing with arms folded">
-              </div>
-              <blockquote class="bg-blue pt-5 card-body text-navy radius">
-                  <cite class="h3 font-weight-semi d-block no-italic">Cormac Mahoney</cite>
-                  <cite class="h5 font-weight-semi text-muted d-block no-italic">Leaving Certificate Student</cite>
-                <p class="card-text col-12 col-sm-8 p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                <div class="d-flex text-yellow font-weight-semi justify-content-center">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-              </blockquote>
-            </div>
-          </div>
-        </article>
-    </section>
-
-    <!-- Subscribe section -->
-    <section class="container-fluid bg-divide pb-5 text-white">
-      <div data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="1000" class="container text-white">
-        <div class="d-flex justify-content-end pb-5 pb-md-0">
-          <img id="envelope" class="minus-margin-100 pr-5" src="{{ url_for('static', filename='images/message.png') }}" alt="3D purple envelope with overlayed number one">
+        <div data-aos="fade-right" data-aos-duration="1000"
+          class="d-flex col-md-6 pt-2 pt-sm-5 text-center justify-content-center">
+          <img id="results-image" src="{{ url_for('static', filename='images/results.png') }}"
+            alt="Colourful 3D pie-chart">
         </div>
-        <div class="bg-yellow pt-5 card-body text-navy radius pl-4 pl-sm-5">
-          <h3 class="font-weight-semi text-white">Get notified about new tutors in your area</h3>
-          <form method="POST" action="/subscribe" id="subscribe">
-            <div class="input-group col-12 col-lg-8 ml-0 p-0 my-4">
-                <input type="email" class="form-control subscribe-email pl-4" id="email" name="email" placeholder="Enter your email" required="">
-                <span class="input-group-btn">
-                  <button class="subscribe-btn px-4" type="submit">Send</button>
-                </span>
-            </div>
-          </form> 
+        <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="col-md-6 align-self-center">
+          <h2 class="hero-text text-navy font-weight-bold mb-4">Resuts driven</h2>
+          <p class="d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let your
+            knowledge get off the ground. We are your learning launchpad.</p>
+          <p class="mb-5 d-flex text-navy">Let your knowledge get off the ground. We are your learning launchpad. Let
+            your knowledge get off the ground. We are your learning launchpad.</p>
+          {% if 'username' not in session %}
+          <div class="col-md-6 mb-3 p-0">
+            <a href="{{url_for('register')}}" class="yellow-btn px-4 rounded-pill pt-1">Sign Up now</a>
+          </div>
+          {% endif %}
         </div>
       </div>
-    </section>
+    </div>
+  </article>
 
-  </main>
+  <!-- Testimonials section -->
+  <section id="testimonials" class="container text-white my-2 my-sm-5 pt-2 pt-sm-5">
+    <h2 class="hero-text text-navy font-weight-bold mb-2 mb-sm-5 py-2 py-sm-5">What our students say...</h2>
+    <div class="row">
+      <article data-aos="fade-up" data-aos-duration="1000" class="col-lg-6 col-md-6 mb-4">
+        <div class="h-100">
+          <div class="d-flex justify-content-end">
+            <img class="minus-margin" src="{{ url_for('static', filename='images/testimonial-profile-girl.png') }}"
+              alt="Profile image of girl sitting at desk">
+          </div>
+          <blockquote class="bg-blue pt-5 card-body text-navy radius">
+            <cite class="h3 font-weight-semi d-block no-italic">Aileen O'Sullivan</cite>
+            <cite class="h5 font-weight-semi text-muted d-block no-italic">Leaving Certificate Student</cite>
+            <p class="card-text col-12 col-sm-8 p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+              numquam aspernatur!</p>
+            <div class="d-flex text-yellow font-weight-semi justify-content-center">&#9733; &#9733; &#9733; &#9733; &#9733;
+            </div>
+          </blockquote>
+        </div>
+      </article>
+
+      <article data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="col-lg-6 col-md-6 mb-4">
+        <div class="h-100">
+          <div class="d-flex justify-content-end">
+            <img class="minus-margin" src="{{ url_for('static', filename='images/testimonial-profile-guy.png') }}"
+              alt="Profile image of young male standing with arms folded">
+          </div>
+          <blockquote class="bg-blue pt-5 card-body text-navy radius">
+            <cite class="h3 font-weight-semi d-block no-italic">Cormac Mahoney</cite>
+            <cite class="h5 font-weight-semi text-muted d-block no-italic">Leaving Certificate Student</cite>
+            <p class="card-text col-12 col-sm-8 p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+              numquam aspernatur!</p>
+            <div class="d-flex text-yellow font-weight-semi justify-content-center">&#9733; &#9733; &#9733; &#9733;
+              &#9733;</div>
+          </blockquote>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Subscribe section -->
+  <section class="container-fluid bg-divide pb-5 text-white">
+    <div data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="1000" class="container text-white">
+      <div class="d-flex justify-content-end pb-5 pb-md-0">
+        <img id="envelope" class="minus-margin-100 pr-5" src="{{ url_for('static', filename='images/message.png') }}"
+          alt="3D purple envelope with overlayed number one">
+      </div>
+      <div class="bg-yellow pt-5 card-body text-navy radius pl-4 pl-sm-5">
+        <h3 class="font-weight-semi text-white">Get notified about new tutors in your area</h3>
+        <form method="POST" action="/subscribe" id="subscribe">
+          <div class="input-group col-12 col-lg-8 ml-0 p-0 my-4">
+            <input type="email" class="form-control subscribe-email pl-4" id="email" name="email"
+              placeholder="Enter your email" required="">
+            <span class="input-group-btn">
+              <button class="subscribe-btn px-4" type="submit">Send</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
 {% endblock %}

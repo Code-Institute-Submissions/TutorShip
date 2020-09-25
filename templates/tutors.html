@@ -2,107 +2,133 @@
 {% block title %}{{subject_selected}} Tutors - Book a Tutor near you now | TutorShip{% endblock %}
 {% block content %}
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-  <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
-    {{ message }} <i class="fas fa-user-check ml-2"></i> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </h4>
+<h4
+  class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0"
+  role="alert">
+  {{ message }} <i class="fas fa-user-check ml-2"></i>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</h4>
 {% endfor %} {% endif %} {% endwith %}
 <!-- Page Content -->
 <main class="container mt-5 mb-5">
-    <div class="row pt-5">
-      <div id="sidebar" class="col-md-3 mt-5 d-none d-md-block">
-        <h2 class="h1 my-4 font-weight-semi">Subjects</h2>
+  <div class="row pt-5">
+    <div id="sidebar" class="col-md-3 mt-5 d-none d-md-block">
+      <h2 class="h1 my-4 font-weight-semi">Subjects</h2>
+      <div class="list-group">
+        <a href="{{url_for('tutors')}}" class="h5 list-group-item"><i
+            class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors{% if not subject %}<i
+            class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
         <div class="list-group">
-            <a href="{{url_for('tutors')}}" class="h5 list-group-item"><i class="fas fa-users pr-2 pb-3 border-bottom"></i>All Tutors{% if not subject %}<i class="fas fa-hand-point-right active pl-2"></i>{% endif %}</a>
-            <div class="list-group">
-              {% for subject_sidebar in subjects_in_sidebar %}
-              <a href="{{url_for('subject_dropdown', subject_selected=subject_sidebar.subject_name)}}" class="h5 list-group-item">{% if subject_selected==subject_sidebar.subject_name%}<i class="fas fa-hand-point-right active pr-2"></i>{% endif %}{{subject_sidebar.subject_name}}</a>
-              {% endfor %}
-            </div>
-        </div>
-      </div>
-      
-      <form class="input-group d-flex col-lg-3 mt-5 d-md-none" action="{{ url_for('subject_dropdown')}}" method="GET">
-        <select name="subject_selected" class="pl-4 custom-select" id="inputGroupSelect01">
-            <option selected disabled>Choose Your Subject</option>
-            {% for subject in subjects %}
-            <option >{{subject.subject_name}}</option>
-            {% endfor %}
-        </select>
-        <span class="input-group-btn">
-            <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
-        </span>
-      </form>
-
-      <div class="container px-5 px-sm-4 pl-lg-5 col-md-9 mt-2 mt-sm-5">
-        <div class="row m-auto">
-          <div class="col-12 mt-4 mt-sm-1 d-flex d-md-none text-center">
-            <div class="col-md-4 mb-3">
-              <a href="{{url_for('tutors')}}" class="yellow-btn px-4 rounded-pill p-1"><i class="fas fa-users pr-2"></i>Show all tutors</a>
-            </div>
-          </div>
-          <div class="col-12 text-center text-sm-left col-sm-8 py-0">
-            {% if subject: %}
-            <h1 class="my-4 font-weight-semi our-tutors-title">{{ subject.subject_name|title }} Tutors</h1>
-            {% elif search_number: %}
-            <h3 class="my-4 font-weight-semi pt-2 our-tutors-title">{{ search_number }} {% if search_number == 1 %} result for: {% else %} results for: {% endif %} <span class="text-yellow">{{ search_for }}</span></h3>
-            {% elif search_number == 0 %}
-            <h3 class="my-4 font-weight-semi pt-2 our-tutors-title">No results for: <span class="text-yellow">{{ search_for }}</span></h3>
-            {% else: %}
-            <h1 class="my-4 font-weight-semi our-tutors-title">Our Tutors</h1>
-            {% endif %}
-          </div>
-          <div class="col-12 col-sm-4 p-0">
-            <!-- Search input form -->
-            <form action="{{ url_for('search')}}" class="search-form my-1 my-sm-4 font-weight-semi justify-content-end text-right" method="POST">
-              <input class="search-input" type="search" placeholder="Search tutors" name="search_input" required="">
-              <button class="btn"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-        </div>
- 
-        <div class="row">
-          {% if subject or tutor %}
-            {% for profile in tutor %}
-            <article class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
-              <div class="card h-100 radius translate-y">
-                <a href="{{url_for('tutor_page', username_id=profile._id)}}"><img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}" alt="{{ profile.first_name|title }} {{ profile.last_name|title }} Profile Thumbnail Image"></a>
-                <div class="card-body">
-                    <div class="row card-subject">
-                        <h6 class="col-12"><a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">{{profile.subject}}</a></h6>
-                    </div>
-                    <h4 class="card-title font-weight-semi pt-1">
-                        <a href="{{url_for('tutor_page', username_id=profile._id)}}">{{profile.first_name|title}} {{profile.last_name|title}}</a>
-                    </h4>
-                    <p class="card-text small crop-text-2">{{profile.about}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </article>
-            {% else: %}
-            <article class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
-              <div class="card h-100 radius translate-y">
-                <img class="card-img-top radius-top card-profile-image" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80" alt="Placeholder Profile Thumbnail Image">
-                  <div class="card-body">
-                    <div class="row card-subject">
-                        <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">———</h6>
-                    </div>
-                    <h4 class="card-title font-weight-semi pt-1">Sorry, No Tutor Available </h4>
-                    <p class="card-text small crop-text-2">...</p>
-                  </div>
-                  <div class="card-footer">
-                    <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>N/A</small>
-                  </div>
-              </div>
-            </article>
-            {% endfor %}
-          {% endif %}
+          {% for subject_sidebar in subjects_in_sidebar %}
+          <a href="{{url_for('subject_dropdown', subject_selected=subject_sidebar.subject_name)}}" class="h5 list-group-item">
+            {% if subject_selected==subject_sidebar.subject_name%}
+            <i class="fas fa-hand-point-right active pr-2"></i>
+            {% endif %}{{subject_sidebar.subject_name}}
+          </a>
+          {% endfor %}
         </div>
       </div>
     </div>
+
+    <form class="input-group d-flex col-lg-3 mt-5 d-md-none" action="{{ url_for('subject_dropdown')}}" method="GET">
+      <select name="subject_selected" class="pl-4 custom-select" id="inputGroupSelect01">
+        <option selected disabled>Choose Your Subject</option>
+        {% for subject in subjects %}
+        <option>{{subject.subject_name}}</option>
+        {% endfor %}
+      </select>
+      <span class="input-group-btn">
+        <button class="search-btn px-2 px-sm-4" type="submit">Search</button>
+      </span>
+    </form>
+
+    <div class="container px-5 px-sm-4 pl-lg-5 col-md-9 mt-2 mt-sm-5">
+      <div class="row m-auto">
+        <div class="col-12 mt-4 mt-sm-1 d-flex d-md-none text-center">
+          <div class="col-md-4 mb-3">
+            <a href="{{url_for('tutors')}}" class="yellow-btn px-4 rounded-pill p-1"><i
+                class="fas fa-users pr-2"></i>Show all tutors</a>
+          </div>
+        </div>
+        <div class="col-12 text-center text-sm-left col-sm-8 py-0">
+          {% if subject: %}
+          <h1 class="my-4 font-weight-semi our-tutors-title">{{ subject.subject_name|title }} Tutors</h1>
+          {% elif search_number: %}
+          <h3 class="my-4 font-weight-semi pt-2 our-tutors-title">{{ search_number }} {% if search_number == 1 %} result
+            for: {% else %} results for: {% endif %} <span class="text-yellow">{{ search_for }}</span></h3>
+          {% elif search_number == 0 %}
+          <h3 class="my-4 font-weight-semi pt-2 our-tutors-title">No results for: <span
+              class="text-yellow">{{ search_for }}</span></h3>
+          {% else: %}
+          <h1 class="my-4 font-weight-semi our-tutors-title">Our Tutors</h1>
+          {% endif %}
+        </div>
+        <!-- Search input form -->
+        <div class="col-12 col-sm-4 p-0">
+          <form action="{{ url_for('search')}}"
+            class="search-form my-1 my-sm-4 font-weight-semi justify-content-end text-right" method="POST">
+            <input class="search-input" type="search" placeholder="Search tutors" name="search_input" required="">
+            <button class="btn"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        {% if subject or tutor %}
+        {% for profile in tutor %}
+        <article class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
+          <div class="card h-100 radius translate-y">
+            <a href="{{url_for('tutor_page', username_id=profile._id)}}">
+              <img class="card-img-top radius-top card-profile-image" src="{{profile.profile_image}}"
+                alt="{{ profile.first_name|title }} {{ profile.last_name|title }} Profile Thumbnail Image">
+            </a>
+            <div class="card-body">
+              <div class="row card-subject">
+                <h6 class="col-12">
+                  <a href="{{url_for('subject_dropdown', subject_selected=profile.subject)}}">
+                    <img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2"
+                      alt="Graduation cap icon">{{profile.subject}}
+                  </a>
+                </h6>
+              </div>
+              <h4 class="card-title font-weight-semi pt-1">
+                <a href="{{url_for('tutor_page', username_id=profile._id)}}">
+                  {{profile.first_name|title}} {{profile.last_name|title}}
+                </a>
+              </h4>
+              <p class="card-text small crop-text-2">{{profile.about}}</p>
+            </div>
+            <div class="card-footer">
+              <small class="d-flex font-weight-semi">
+                <span class="text-muted pr-2">Rating: </span>&#9733; &#9733; &#9733; &#9733; &#9734;
+              </small>
+            </div>
+          </div>
+        </article>
+        {% else: %}
+        <article class="col-sm-6 col-md-6 col-lg-4 col-md-6 mb-4">
+          <div class="card h-100 radius translate-y">
+            <img class="card-img-top radius-top card-profile-image"
+              src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3889&q=80"
+              alt="Placeholder Profile Thumbnail Image">
+            <div class="card-body">
+              <div class="row card-subject">
+                <h6 class="col-12"><img src="{{ url_for('static', filename='images/grad-cap-sm.svg') }}" class="pr-2" alt="Graduation cap icon">———</h6>
+              </div>
+              <h4 class="card-title font-weight-semi pt-1">Sorry, No Tutor Available</h4>
+              <p class="card-text small crop-text-2">...</p>
+            </div>
+            <div class="card-footer">
+              <small class="d-flex font-weight-semi"><span class="text-muted pr-2">Rating: </span>N/A</small>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </main>
 {% endblock %}

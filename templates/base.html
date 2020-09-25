@@ -2,73 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/sandstone/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/sandstone/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
 
- <!-- Navigation -->
+  <!-- Navigation -->
   <header>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-purple fixed-top py-3">
-        <div class="container">
-            <a class="navbar-brand" href="{{url_for('home')}}"><img src="{{ url_for('static', filename='images/tutorship-logo.svg') }}" alt="Tutorship Logo"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto align-items-center">
-                  {% if 'username' in session %}
-                  <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="{{url_for('tutors')}}">Tutors
-                    <span class="sr-only">(current)</span>
-                    </a>
-                  </li>
-                  <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Coming Soon">Student Dashboard</a>
-                  </li>
-                    {% if session['has_profile'] %}
-                    <li class="nav-item pr-md-3">
-                        <a class="nav-link" href="{{ url_for('my_profile', creator_id=session['username'])}}">My Profile</a>
-                    </li>
-                    {% elif not session['has_profile'] %}
-                    <li class="nav-item pr-md-3">
-                        <a class="nav-link" href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a>
-                    </li>
-                    {% endif %}
-                  <li class="nav-item">
-                      <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('logout')}}">Logout<i class="pl-2 fas fa-sign-out-alt"></i> </a>
-                  </li>
-                  {% else %}
-                  <li class="nav-item pr-md-3">
-                    <a class="nav-link" href="{{url_for('tutors')}}">Tutors
-                    <span class="sr-only">(current)</span>
-                    </a>
-                  </li>
-                  <li class="nav-item pr-md-3">
-                      <a class="nav-link" href="{{url_for('pricing')}}">Pricing</a>
-                  </li>
-                  <li class="nav-item pr-md-3">
-                      <a class="nav-link" href="{{url_for('home')+ '#about-section'}}">About</a>
-                  </li>
-                  <li class="nav-item pr-md-3">
-                      <a class="nav-link" href="{{url_for('login')}}">Login</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('register')}}">Register</a>
-                  </li>
-                  {% endif %}
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="{{url_for('home')}}">
+          <img src="{{ url_for('static', filename='images/tutorship-logo.svg') }}" alt="Tutorship Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto align-items-center">
+            {% if 'username' in session %}
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{url_for('tutors')}}">Tutors
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Coming Soon"> Student Dashboard</a>
+            </li>
+            {% if session['has_profile'] %}
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{ url_for('my_profile', creator_id=session['username'])}}">My Profile</a>
+            </li>
+            {% elif not session['has_profile'] %}
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('logout')}}">Logout
+                <i class="pl-2 fas fa-sign-out-alt"></i> 
+              </a>
+            </li>
+            {% else %}
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{url_for('tutors')}}">Tutors
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{url_for('pricing')}}">Pricing</a>
+            </li>
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{url_for('home')+ '#about-section'}}">About</a>
+            </li>
+            <li class="nav-item pr-md-3">
+              <a class="nav-link" href="{{url_for('login')}}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="d-flex px-4 rounded-pill nav-btn align-items-center" href="{{url_for('register')}}">Register</a>
+            </li>
+            {% endif %}
+          </ul>
         </div>
+      </div>
     </nav>
   </header>
 
@@ -79,21 +84,29 @@
     <div class="container h-100">
       <div class="row mb-5">
         <div class="col-lg-3">
-          <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='images/tutorship-logo.svg') }}" alt="Tutorship Logo"></a>
+          <a href="{{url_for('home')}}">
+            <img src="{{ url_for('static', filename='images/tutorship-logo.svg') }}" alt="Tutorship Logo">
+          </a>
           <p class="pt-4">Providing students access to quality tutors in their area.</p>
-          <a href="https://facebook.com" target="_blank"><img src="{{ url_for('static', filename='images/facebook.svg') }}" class="pr-2 translate-y" alt="Facebook Logo Icon"></a>
-          <a href="https://instagram.com" target="_blank"><img src="{{ url_for('static', filename='images/instagram.svg') }}" class="pr-2 translate-y" alt="Instagram Logo Icon"></a>
-          <a href="https://twitter.com" target="_blank"><img src="{{ url_for('static', filename='images/twitter.svg') }}" class="translate-y" alt="Twitter Logo Icon"></a>
+          <a href="https://facebook.com" target="_blank">
+            <img src="{{ url_for('static', filename='images/facebook.svg') }}" class="pr-2 translate-y" alt="Facebook Logo Icon">
+          </a>
+          <a href="https://instagram.com" target="_blank">
+            <img src="{{ url_for('static', filename='images/instagram.svg') }}" class="pr-2 translate-y" alt="Instagram Logo Icon">
+          </a>
+          <a href="https://twitter.com" target="_blank">
+            <img src="{{ url_for('static', filename='images/twitter.svg') }}" class="translate-y" alt="Twitter Logo Icon">
+          </a>
         </div>
         <div class="offset-lg-1 col-lg-2 col-6 pt-4 pl-sm-5">
           <h5 class="text-uppercase font-weight-semi">Services</h5>
           <ul class="list-unstyled">
             {% if 'username' in session %}
-              {% if session['has_profile'] %}
-              <li><a href="{{ url_for('my_profile', creator_id=session['username'])}}">Your Profile</a></li>
-              {% elif not session['has_profile'] %}
-              <li><a href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a></li>
-              {% endif %}
+            {% if session['has_profile'] %}
+            <li><a href="{{ url_for('my_profile', creator_id=session['username'])}}">Your Profile</a></li>
+            {% elif not session['has_profile'] %}
+            <li><a href="{{ url_for('create_profile', creator_id=session['username'])}}">Create Profile</a></li>
+            {% endif %}
             {% else %}
             <li><a href="{{url_for('register')}}">Tutor Register</a></li>
             {% endif %}
@@ -118,8 +131,10 @@
             <li><a href="mailto:hello@tutorship.ie" class="h3 font-weight-bold">hello@tutorship.ie</a></li>
           </ul>
           <div class="d-flex">
-            <a href="#"><img class="pr-2" src="{{ url_for('static', filename='images/gdpr-logo.svg') }}" alt="GDPR Compliant Icon"></a>
-            <a href="#"><img class="pl-sm-3" src="{{ url_for('static', filename='images/trustpilot-logo.svg') }}" alt="Trustpilot Logo"></a>
+            <a href="#"><img class="pr-2" src="{{ url_for('static', filename='images/gdpr-logo.svg') }}" alt="GDPR Compliant Icon">
+             </a>
+            <a href="#"><img class="pl-sm-3" src="{{ url_for('static', filename='images/trustpilot-logo.svg') }}" alt="Trustpilot Logo">
+            </a>
           </div>
         </div>
       </div>
@@ -134,11 +149,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
-  <script  src="{{ url_for('static', filename='js/form_validation.js') }}"></script>
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
+  <!-- initialise animate on scroll and disable for mobile -->
   <script>
-    AOS.init({disable: 'mobile', disable: 'phone'});
+    AOS.init({
+      disable: 'mobile',
+      disable: 'phone'
+    });
   </script>
 
 </body>

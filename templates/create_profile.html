@@ -3,92 +3,99 @@
 {% block content %}
 
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-  <h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
-    {{ message }} <i class="fas fa-user-check ml-2"></i> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </h4>
+<h4 class="col-12 alert m-auto alert-success alert-dismissible fixed-bottom mb-5 rounded-0 py-4 text-left text-sm-center border-0" role="alert">
+  {{ message }} <i class="fas fa-user-check ml-2"></i>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</h4>
 {% endfor %} {% endif %} {% endwith %}
 
-  <main id="register-form" class="container-fluid d-flex align-items-center pb-5 mt-5">
-    <form id="form" action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
-      <div class="text-center mb-4 mt-5">
-        <h1 class="mb-3 font-weight-semi text-purple">Welcome {{ session['username'].capitalize() }},</h1>
-        <h2 class="mb-3 text-purple"> Let's create your tutor profile.</h2>
-      </div>
+<main id="register-form" class="container-fluid d-flex align-items-center pb-5 mt-5">
+  <form id="form" action="{{url_for('insert_profile')}}" method="POST" class="form-signin mt-5">
+    <div class="text-center mb-4 mt-5">
+      <h1 class="mb-3 font-weight-semi text-purple">Welcome {{ session['username'].capitalize() }},</h1>
+      <h2 class="mb-3 text-purple"> Let's create your tutor profile.</h2>
+    </div>
 
-      <label for="first_name">First Name</label>
-      <div class="form-label-group">
-        <input type="text" id="first_name" name="first_name" class="form-control p-4 rounded-pill mb-4" placeholder="Your First Name" required="" autofocus="" autocomplete="off">
-      </div>
-      
-      <label for="last_name">Last Name</label>
-      <div class="form-label-group">
-        <input type="text" id="last_name" name="last_name" class="form-control p-4 rounded-pill mb-4" placeholder="Your surname" required="" autocomplete="off">
-      </div>
+    <label for="first_name">First Name</label>
+    <div class="form-label-group">
+      <input type="text" id="first_name" name="first_name" class="form-control p-4 rounded-pill mb-4"
+        placeholder="Your First Name" required autofocus autocomplete="off">
+    </div>
 
-      <label for="email">Email address (for student contact)</label>
-      <div class="form-label-group">
-        <input type="email" id="email" name="email" class="form-control p-4 rounded-pill mb-4" placeholder="Preferred contact address" value="{{session['email']}}" required="" autocomplete="off">
-      </div>
-      
-      <label for="about">About You</label>
-      <div class="form-label-group mb-4">
-        <textarea class="form-control" id="about" name="about" rows="10" required></textarea>
-      </div>  
-      
-      <label for="subject">Subject You Teach</label>
-      <div class="form-label-group">
-        <select class="dropdown-select col-12 form-control rounded-pill mb-4" id="subject" name="subject" required="required">
-          <option value="">I teach...</option>
-          <option disabled>——————————————</option>
-          <option value="Accounting">Accounting</option>
-          <option value="Applied Maths">Applied Maths</option>
-          <option value="Art">Art</option>
-          <option value="Biology">Biology</option>
-          <option value="Business">Business</option>
-          <option value="Chemistry">Chemistry</option>
-          <option value="Construction">Construction</option>
-          <option value="Economics">Economics</option>
-          <option value="English">English</option>
-          <option value="French">French</option>
-          <option value="Geography">Geography</option>
-          <option value="German">German</option>
-          <option value="Home Economics">Home Economics</option>
-          <option value="Maths">Maths</option>
-          <option value="Music">Music</option>
-          <option value="Physics">Physics</option>
-          <option value="Spanish">Spanish</option>
-          <option value="Technology">Technology</option>
-        </select>
-      </div>
-      
-      <label for="qualification">Qualification</label>
-      <div class="form-label-group">
-        <input type="text" id="qualification" name="qualification" class="form-control p-4 rounded-pill mb-4" placeholder="Your qualification title" required="" autocomplete="off">
-      </div>
-      
-      <label for="years_tutoring">Years Tutoring</label>
-      <div class="form-label-group">
-        <select class="dropdown-select col-12 form-control rounded-pill mb-4" id="years_tutoring" name="years_tutoring" required="required">
-          <option value="Less than 1 year">Less than 1 year</option>
-          <option value="1+ Years">1+ Years</option>
-          <option value="2+ Years">2+ Years</option>
-          <option value="3+ Years">3+ Years</option>
-          <option value="5+ Years">5+ Years</option>
-        </select>
-      </div>
-      
-      <label for="profile_image">Profile Image</label>
-      <div class="form-label-group">
-        <input type="text" pattern="^https?://(images\.unsplash\.com" id="profile_image" name="profile_image" class="form-control p-4 rounded-pill mb-4" placeholder="Paste image link here" required="" autocomplete="off">
-      </div>
+    <label for="last_name">Last Name</label>
+    <div class="form-label-group">
+      <input type="text" id="last_name" name="last_name" class="form-control p-4 rounded-pill mb-4"
+        placeholder="Your surname" required autocomplete="off">
+    </div>
 
-      <div class="row ml-1">
-        <button class="col-4 submit-btn h5 font-weight-semi rounded-pill mr-4 justify-content-center text-center" type="submit">Launch</button>
-        <div id="error" class="text-muted d-flex align-items-center pt-1 text-center"></div>
-      </div>
-    </form>
-  </main>
+    <label for="email">Email address (for student contact)</label>
+    <div class="form-label-group">
+      <input type="email" id="email" name="email" class="form-control p-4 rounded-pill mb-4"
+        placeholder="Preferred contact address" value="{{session['email']}}" required autocomplete="off">
+    </div>
+
+    <label for="about">About You</label>
+    <div class="form-label-group mb-4">
+      <textarea class="form-control" id="about" name="about" rows="10" required></textarea>
+    </div>
+
+    <label for="subject">Subject You Teach</label>
+    <div class="form-label-group">
+      <select class="dropdown-select col-12 form-control rounded-pill mb-4" id="subject" name="subject" required="required">
+        <option value="">I teach...</option>
+        <option disabled>——————————————</option>
+        <option value="Accounting">Accounting</option>
+        <option value="Applied Maths">Applied Maths</option>
+        <option value="Art">Art</option>
+        <option value="Biology">Biology</option>
+        <option value="Business">Business</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Construction">Construction</option>
+        <option value="Economics">Economics</option>
+        <option value="English">English</option>
+        <option value="French">French</option>
+        <option value="Geography">Geography</option>
+        <option value="German">German</option>
+        <option value="Home Economics">Home Economics</option>
+        <option value="Maths">Maths</option>
+        <option value="Music">Music</option>
+        <option value="Physics">Physics</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Technology">Technology</option>
+      </select>
+    </div>
+
+    <label for="qualification">Qualification</label>
+    <div class="form-label-group">
+      <input type="text" id="qualification" name="qualification" class="form-control p-4 rounded-pill mb-4"
+        placeholder="Your qualification title" required autocomplete="off">
+    </div>
+
+    <label for="years_tutoring">Years Tutoring</label>
+    <div class="form-label-group">
+      <select class="dropdown-select col-12 form-control rounded-pill mb-4" id="years_tutoring" name="years_tutoring" required="required">
+        <option value="Less than 1 year">Less than 1 year</option>
+        <option value="1+ Years">1+ Years</option>
+        <option value="2+ Years">2+ Years</option>
+        <option value="3+ Years">3+ Years</option>
+        <option value="5+ Years">5+ Years</option>
+      </select>
+    </div>
+
+    <label for="profile_image">Profile Image</label>
+    <div class="form-label-group">
+      <input type="text" id="profile_image" name="profile_image"
+        class="form-control p-4 rounded-pill mb-4" placeholder="Paste image link here" required autocomplete="off">
+    </div>
+
+    <div class="row ml-1">
+      <button class="col-4 submit-btn h5 font-weight-semi rounded-pill mr-4 justify-content-center text-center" type="submit">Launch
+      </button>
+      <div id="error" class="d-flex align-items-center pt-1 text-center text-danger"></div>
+    </div>
+  </form>
+</main>
+<script src="{{ url_for('static', filename='js/form_validation.js') }}"></script>
 {% endblock %}
