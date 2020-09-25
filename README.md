@@ -2,7 +2,7 @@
 
 ### Code Institute: Data Centric Development Milestone Project
 
-![TutorShip Logo](https://github.com/JustinMcC066/TutorShip/blob/master/static/images/tutorship-purple.svg)
+![TutorShip Logo](https://github.com/JustinMcC066/TutorShip/blob/master/readme_images/tutorship-logo.png)
 
 ## TutorShip - [Live Site](https://tutorship-app.herokuapp.com/)
 
