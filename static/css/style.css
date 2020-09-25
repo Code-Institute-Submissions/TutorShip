@@ -720,7 +720,7 @@ button:focus {
     }
 
     #envelope {
-        width: 100%;
+        width: 80%;
         height: auto;
     }
 
@@ -737,6 +737,10 @@ button:focus {
         width: 220px;
         cursor: pointer;
         border: 4px solid #FCBC14;
+    }
+    
+    .hero-background {
+        background-image: url("../images/mobile-hero-background.jpg");
     }
 
 }
