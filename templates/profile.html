@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}{{ tutor.subject }} Tutor - {{ tutor.first_name|title }} {{ tutor.last_name|title }} | TutorShip{% endblock %}
+{% block meta_desc %}Can {{ tutor.first_name|title }} {{ tutor.last_name|title }} answer your problems?{% endblock %}
 {% block content %}
 
 <!-- Flash messaging -->
